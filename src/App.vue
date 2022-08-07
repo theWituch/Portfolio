@@ -1,6 +1,18 @@
 <template>
-  <router-view/>
+  <HeaderBar />
+  <router-view />
 </template>
+
+<script>
+import HeaderBar from "./components/HeaderBar.vue";
+
+export default {
+  components: {
+    HeaderBar,
+  },
+  setup() {},
+};
+</script>
 
 <style>
 #app {
