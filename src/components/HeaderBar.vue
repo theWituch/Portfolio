@@ -6,13 +6,9 @@
       </div>
 
       <div class="navigation flex">
-        <div class="toggle flex">
-          <button @click="collapsed = !collapsed" class="toggle">
-            <span :class="{ toggled: !collapsed }" class="toggle-icon material-icons" style="font-size: inherit"
-              >menu</span
-            >
-          </button>
-        </div>
+        <button @click="collapsed = !collapsed" class="toggle">
+          <span :class="{ toggled: !collapsed }" class="toggle-icon material-icons">menu</span>
+        </button>
 
         <ul class="nav-list" :class="{ collapsed }">
           <li>
@@ -144,11 +140,11 @@ div .navigation {
     z-index: 999998;
     border: 0;
     cursor: pointer;
-    font-size: 35px;
     background-color: transparent;
   }
 
   .toggle-icon {
+    font-size: 35px;
     transition: transform 0.4s ease;
   }
 
