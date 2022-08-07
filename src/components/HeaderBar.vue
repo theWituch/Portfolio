@@ -6,9 +6,13 @@
       </div>
 
       <div class="navigation flex">
-        <button @click="collapsed = !collapsed" class="toggle">
-          <span :class="{ toggled: !collapsed }" class="toggle-icon material-icons">menu</span>
-        </button>
+        <div class="toggle flex">
+          <button @click="collapsed = !collapsed" class="toggle">
+            <span :class="{ toggled: !collapsed }" class="toggle-icon material-icons" style="font-size: inherit"
+              >menu</span
+            >
+          </button>
+        </div>
 
         <ul class="nav-list" :class="{ collapsed }">
           <li>
@@ -25,6 +29,10 @@
           </li>
         </ul>
       </div>
+
+      <div class="colormode flex">
+        <DarkModeToggle :placeholder="'Toggle colors'"/>
+      </div>
     </nav>
   </transition>
 </template>
@@ -33,7 +41,10 @@
 import { ref } from "@vue/reactivity";
 import { computed } from "@vue/runtime-core";
 
+import DarkModeToggle from "./toggles/DarkModeToggle.vue";
+
 export default {
+  components: { DarkModeToggle },
   setup() {
     const collapsed = ref(true);
     const scrollHeight = ref(0);
@@ -44,11 +55,9 @@ export default {
       }
       return result;
     });
-
     const handleScroll = () => {
       scrollHeight.value = window.scrollY;
     };
-
     return { handleScroll, showHeader, collapsed };
   },
   created() {
@@ -140,11 +149,11 @@ div .navigation {
     z-index: 999998;
     border: 0;
     cursor: pointer;
+    font-size: 35px;
     background-color: transparent;
   }
 
   .toggle-icon {
-    font-size: 35px;
     transition: transform 0.4s ease;
   }
 
@@ -167,6 +176,10 @@ div .navigation {
   .nav-list.collapsed {
     visibility: hidden;
     transform: translateY(-100%);
+  }
+
+  .colormode {
+    display: none;
   }
 }
 
