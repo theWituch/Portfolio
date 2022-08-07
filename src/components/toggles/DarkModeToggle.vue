@@ -13,17 +13,12 @@
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
+import useTheme from "@/composables/useTheme";
 
 export default {
   props: ["placeholder"],
   setup() {
-    const darkmode = ref(false);
-
-    const toggleTheme = () => {
-      darkmode.value = !darkmode.value;
-      document.documentElement.className = darkmode.value ? "dark-theme" : "light-theme";
-    };
+    const { darkmode, toggleTheme } = useTheme();
 
     return { darkmode, toggleTheme };
   },
