@@ -20,8 +20,8 @@ const randomizeInteger = (min, max, lastNumber = null) => {
   return newInteger;
 };
 
-const useUtils = () => {
-  return { randomizeInteger };
+const sleep = (time) => {
+  return new Promise((resolve) => setTimeout(resolve, time));
 };
 
-export default useUtils;
+export { sleep, randomizeInteger };
