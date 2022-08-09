@@ -15,6 +15,7 @@
               'Electronics',
               'Electrician',
             ]"
+            :mode="'typewriting'"
             class="animated-item"
           />
         </h1>
