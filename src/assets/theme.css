@@ -33,4 +33,10 @@
 
   --background: var(--white);
   --content: var(--black);
+  --link-hover: var(--yellow)
+}
+
+:root.dark-theme {
+  --content: var(--white);
+  --background: var(--black);
 }
