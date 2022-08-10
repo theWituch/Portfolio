@@ -7,13 +7,13 @@
           <span class="me-2">Hey folks, I'm</span>
           <TextAnimator
             :strings="[
-              'Mateusz Frydrych',
-              'Engineer',
-              'Developer',
-              'Constructor',
-              'Designer',
-              'Electronics',
-              'Electrician',
+              'Mateusz Frydrych.',
+              'Engineer.',
+              'Developer.',
+              'Constructor.',
+              'Designer.',
+              'Electronics.',
+              'Electrician.',
             ]"
             :mode="'typewriting'"
             class="animated-item"
