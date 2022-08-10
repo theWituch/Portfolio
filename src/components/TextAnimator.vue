@@ -40,15 +40,15 @@ export default {
         textToRender.value += letter;
         await sleep(125);
       }
-      await sleep(1500);
 
       if (textToRender.value) {
-        for (let letter of textToRender.value) {
+        await sleep(1500);
+        do {
           textToRender.value = textToRender.value.substring(0, textToRender.value.length - 1);
           await sleep(25);
-        }
+        } while (textToRender.value);
+        await sleep(300);
       }
-      await sleep(300);
 
       drawString();
       printString(activeText.value);
