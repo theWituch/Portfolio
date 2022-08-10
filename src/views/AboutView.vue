@@ -1,19 +1,46 @@
 <template>
   <div class="container content">
-    <h1>This is an about page</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae dolorem incidunt qui cupiditate. Accusantium, placeat? Necessitatibus mollitia consectetur aspernatur amet saepe vel itaque optio ea nemo? Itaque voluptas doloremque consequuntur officia quaerat illum unde, non vitae dolorem, quidem nostrum ipsam. Cum et id hic rem blanditiis distinctio, consectetur dolor, eligendi dolores reiciendis odit beatae at dolorem, esse sint? Deleniti sequi corporis commodi rem eveniet tenetur recusandae illo cum nemo! Officiis nesciunt minus dolorem, sint rem aspernatur saepe similique. Architecto nam perferendis sunt obcaecati aperiam id, molestias illo. Optio, qui provident, ipsam exercitationem perspiciatis eaque quae nemo debitis vero iste magnam.</p>
+    <section>
+      <div>
+        <p>Welcome to my portfolio website!</p>
+        <h1>
+          <span class="me-2">Hey folks, I'm</span>
+          <TextAnimator
+            :strings="[
+              'Mateusz Frydrych',
+              'Engineer',
+              'Developer',
+              'Constructor',
+              'Designer',
+              'Electronics',
+              'Electrician',
+            ]"
+            :mode="'typewriting'"
+            class="animated-item"
+          />
+        </h1>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, quae! Consequatur omnis id vitae fugit? Ea
+          ipsum delectus repudiandae asperiores.
+        </p>
+      </div>
+    </section>
   </div>
 </template>
+
+<script>
+import TextAnimator from "@/components/TextAnimator.vue";
+
+export default {
+  components: { TextAnimator },
+  setup() {
+    return {};
+  },
+};
+</script>
+
+<style>
+.animated-item {
+  color: var(--yellow);
+}
+</style>
