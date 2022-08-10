@@ -1,37 +1,39 @@
 <template>
   <transition name="header">
-    <nav v-if="showHeader" class="header container">
-      <div class="brand">
-        <p>Portfolio logo</p>
-      </div>
-
-      <div class="navigation flex">
-        <div class="toggle flex">
-          <button @click="collapsed = !collapsed" class="toggle">
-            <span :class="{ toggled: !collapsed }" class="toggle-icon material-icons" style="font-size: inherit"
-              >menu</span
-            >
-          </button>
+    <nav v-show="showHeader" class="header">
+      <div class="container">
+        <div class="brand">
+          <p>Portfolio logo</p>
         </div>
 
-        <ul class="nav-list" :class="{ collapsed }">
-          <li>
-            <router-link class="nav-link" :to="{ name: 'about' }"> About me </router-link>
-          </li>
-          <li>
-            <router-link class="nav-link" :to="{ name: 'about' }"> Carrer </router-link>
-          </li>
-          <li>
-            <router-link class="nav-link" :to="{ name: 'about' }"> Projects </router-link>
-          </li>
-          <li>
-            <router-link class="nav-link" :to="{ name: 'about' }"> Contact </router-link>
-          </li>
-        </ul>
-      </div>
+        <div class="navigation flex">
+          <div class="toggle flex">
+            <button @click="collapsed = !collapsed" class="toggle">
+              <span :class="{ toggled: !collapsed }" class="toggle-icon material-icons" style="font-size: inherit"
+                >menu</span
+              >
+            </button>
+          </div>
 
-      <div class="colormode flex">
-        <DarkModeToggle :placeholder="'Toggle colors'"/>
+          <ul class="nav-list" :class="{ collapsed }">
+            <li>
+              <router-link class="nav-link" :to="{ name: 'about' }"> About me </router-link>
+            </li>
+            <li>
+              <router-link class="nav-link" :to="{ name: 'about' }"> Carrer </router-link>
+            </li>
+            <li>
+              <router-link class="nav-link" :to="{ name: 'about' }"> Projects </router-link>
+            </li>
+            <li>
+              <router-link class="nav-link" :to="{ name: 'about' }"> Contact </router-link>
+            </li>
+          </ul>
+        </div>
+
+        <div class="colormode flex">
+          <DarkModeToggle :placeholder="'Toggle colors'" />
+        </div>
       </div>
     </nav>
   </transition>
@@ -70,18 +72,22 @@ export default {
 </script>
 
 <style scoped>
-div .header {
+.header {
   position: fixed;
   margin: 0 auto;
   top: 0;
   right: 0;
   left: 0;
   z-index: 999999;
+  background: transparent;
+}
+
+.header > .container {
   min-height: 80px;
   display: grid;
   grid-template-columns: 2fr 5fr 1fr;
   grid-column-gap: 10px;
-  background: transparent;
+  background: inherit;
 }
 
 .header-enter-active,
@@ -137,14 +143,14 @@ div .navigation {
  */
 
 @media (max-width: 768px) {
-  div .header {
+  .header > .container {
     grid-template-columns: 1fr;
   }
 
   .toggle {
     position: fixed;
-    top: 22px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     width: 12%;
     z-index: 999998;
     border: 0;
