@@ -1,7 +1,7 @@
 <template>
   <div class="container content">
-    <section>
-      <div>
+    <section class="about my-4 py-2">
+      <div class="about-text">
         <p>Welcome to my portfolio website!</p>
         <h1>
           <span class="me-2">Hey folks, I'm</span>
@@ -24,6 +24,13 @@
           ipsum delectus repudiandae asperiores.
         </p>
       </div>
+      <div class="round">
+        <img
+          src="https://scontent.fpoz2-1.fna.fbcdn.net/v/t1.6435-9/31159640_1581873875244089_5557646170165084160_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Ifml9Rq8rusAX_Zm2tY&_nc_ht=scontent.fpoz2-1.fna&oh=00_AT_PX1e0c93cjDITF8fJWdVIvGUrTGzurQ_7Wp_XWexJ6g&oe=631848F9"
+        />
+      </div>
+    </section>
+
     </section>
   </div>
 </template>
@@ -40,7 +47,54 @@ export default {
 </script>
 
 <style>
+.about {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 20pt;
+}
+
+.about-text {
+  margin: auto;
+}
+
 .animated-item {
   color: var(--yellow);
+}
+
+.round {
+  margin: auto;
+  width: 80%;
+  aspect-ratio: 1; /* ↔️ is double the ↕️ */
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+}
+.round > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  transition: 1s ease;
+}
+img:hover {
+  height: 120%;
+  transform: translate(-50%, -42%);
+}
+
+/*
+ *  Responsive
+ */
+
+@media (max-width: 768px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+  .round {
+    height: 75vw;
+    width: 75vw;
+    margin-top: 20pt;
+  }
 }
 </style>
