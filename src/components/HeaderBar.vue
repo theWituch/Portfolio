@@ -1,6 +1,6 @@
 <template>
   <transition name="header">
-    <nav v-show="showHeader" class="header">
+    <nav v-show="showHeader" class="header" :class="{ scrolled }">
       <div class="container">
         <div class="brand">
           <p>Portfolio logo</p>
@@ -41,7 +41,7 @@
 
 <script>
 import { ref } from "@vue/reactivity";
-import { computed } from "@vue/runtime-core";
+import { computed, watch } from "@vue/runtime-core";
 
 import DarkModeToggle from "./toggles/DarkModeToggle.vue";
 
@@ -50,17 +50,27 @@ export default {
   setup() {
     const collapsed = ref(true);
     const scrollHeight = ref(0);
+
+    var lastScrollHeight = null;
     const showHeader = computed(() => {
-      let result = scrollHeight.value < 5;
-      if (!result) {
-        collapsed.value = true;
-      }
+      let result = scrollHeight.value <= lastScrollHeight;
+      lastScrollHeight = scrollHeight.value;
       return result;
     });
+    watch(showHeader, (showing) => {
+      if (!showing) {
+        collapsed.value = true;
+      }
+    });
+
     const handleScroll = () => {
       scrollHeight.value = window.scrollY;
     };
-    return { handleScroll, showHeader, collapsed };
+    const scrolled = computed(() => {
+      return scrollHeight.value !== 0 && showHeader.value;
+    });
+
+    return { handleScroll, showHeader, collapsed, scrolled };
   },
   created() {
     window.addEventListener("scroll", this.handleScroll);
@@ -80,6 +90,10 @@ export default {
   left: 0;
   z-index: 999999;
   background: transparent;
+}
+
+.header.scrolled {
+  border-bottom: 1px solid var(--border);
 }
 
 .header > .container {
@@ -184,6 +198,10 @@ div .navigation {
   .nav-list.collapsed {
     visibility: hidden;
     transform: translateY(-100%);
+  }
+
+  .scrolled .nav-list {
+    border-bottom: 1px solid var(--border);
   }
 
   .colormode {

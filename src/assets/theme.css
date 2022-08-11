@@ -37,12 +37,14 @@
 
   --background: var(--white);
   --content: var(--darker);
+  --border: var(--light);
   --accent: var(--gray);
   --link-hover: var(--yellow);
 }
 
 :root.dark-theme {
-  --content: var(--white);
-  --accent: var(--white);
   --background: var(--darkest);
+  --content: var(--white);
+  --border: var(--darker);
+  --accent: var(--white);
 }
