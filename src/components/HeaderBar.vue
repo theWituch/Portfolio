@@ -89,7 +89,7 @@ export default {
   right: 0;
   left: 0;
   z-index: 999999;
-  background: transparent;
+  background: var(--background);
 }
 
 .header.scrolled {
@@ -97,7 +97,7 @@ export default {
 }
 
 .header > .container {
-  min-height: 80px;
+  min-height: 70px;
   display: grid;
   grid-template-columns: 2fr 5fr 1fr;
   grid-column-gap: 10px;
@@ -111,7 +111,6 @@ export default {
 
 .header-enter-from,
 .header-leave-to {
-  opacity: 0;
   transform: translateY(-100%);
 }
 
@@ -121,11 +120,6 @@ div .brand {
   padding: 0 10px;
   /* TODO: remove when logo added */
   visibility: hidden;
-}
-
-div .navigation {
-  overflow: hidden;
-  background: transparent;
 }
 
 .nav-list {
@@ -183,6 +177,15 @@ div .navigation {
     transform: rotate(90deg);
   }
 
+  div .navigation {
+    overflow: hidden;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 100%;
+  }
+
   .nav-list {
     top: -100%;
     width: 100%;
@@ -191,12 +194,11 @@ div .navigation {
     flex-direction: column;
     align-items: center;
     background-color: var(--background);
-    /* border-bottom: 1px solid var(--gray); */
+    border-bottom: 1px solid var(--border);
     transition: all 0.75s ease;
   }
 
   .nav-list.collapsed {
-    visibility: hidden;
     transform: translateY(-100%);
   }
 
