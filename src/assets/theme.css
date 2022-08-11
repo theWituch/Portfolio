@@ -10,7 +10,7 @@
   --teal: #20c997;
   --cyan: #17a2b8;
   --white: #fff;
-  --gray: #6c757d;
+  --gray: #5b5b5b;
   --gray-dark: #343a40;
   --primary: #007bff;
   --secondary: #6c757d;
@@ -20,6 +20,8 @@
   --danger: #dc3545;
   --light: #f8f9fa;
   --dark: #343a40;
+  --darker: #212529;
+  --darkest: #0c0c0d;
   --black: #000;
 
   --breakpoint-xs: 0;
@@ -28,16 +30,19 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
 
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, Avenir, "Segoe UI", Roboto, Helvetica, "Helvetica Neue",
-    Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-sans-serif: -apple-system, "Maven Pro", BlinkMacSystemFont, Avenir, "Segoe UI", Roboto, Helvetica,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   --background: var(--white);
-  --content: var(--black);
+  --content: var(--darker);
+  --accent: var(--gray);
   --link-hover: var(--yellow);
 }
 
 :root.dark-theme {
   --content: var(--white);
-  --background: var(--black);
+  --accent: var(--white);
+  --background: var(--darkest);
 }

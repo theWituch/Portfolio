@@ -6,6 +6,14 @@ I use it to practice creating applications in Vue and at the same time to presen
 
 The latest released version is accessible at https://thewituch.netlify.app/.
 
+## Few words about
+
+The original plan for creating this portfolio was to go through the full process - from design in Figma to application development.\
+However, I decided to let go of the design process (lack of inspiration) and proceed directly to the implementation process.
+
+As a website design, I used a ready-made theme (https://www.free-css.com/free-css-templates/page270/marvel) from the Internet and treated it as a visual guideline on how the target product should look like and behave.
+
+I wrote the entire application in VueJS **myself from scratch.**
 
 ## Getting Started
 
