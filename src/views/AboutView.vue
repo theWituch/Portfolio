@@ -12,7 +12,7 @@
               'Developer.',
               'Constructor.',
               'Designer.',
-              'Electronics.',
+              'Electronics Engr.',
               'Electrician.',
             ]"
             :mode="'typewriting'"
