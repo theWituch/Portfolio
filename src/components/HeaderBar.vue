@@ -105,6 +105,8 @@ div .brand {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 0 10px;
+  /* TODO: remove when logo added */
+  visibility: hidden;
 }
 
 div .navigation {
