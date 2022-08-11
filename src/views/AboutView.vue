@@ -1,10 +1,10 @@
 <template>
   <div class="container content">
     <section class="about my-4 py-2">
-      <div class="about-text">
-        <p>Welcome to my portfolio website!</p>
-        <h1>
-          <span class="me-2">Hey folks, I'm</span>
+      <div class="m-auto">
+        <p class="welcome m-0 px-3">Welcome to my portfolio website!</p>
+        <h1 class="my-4">
+          <span class="me-3">Hey folks, I'm</span>
           <TextAnimator
             :strings="[
               'Mateusz Frydrych.',
@@ -50,11 +50,17 @@ export default {
 .about {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-column-gap: 20pt;
 }
 
-.about-text {
-  margin: auto;
+.about .welcome {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  color: var(--accent);
+}
+
+.about h1 {
+  font-size: 2.8em;
 }
 
 .animated-item {
@@ -93,6 +99,11 @@ export default {
 @media (max-width: 768px) {
   .about {
     grid-template-columns: 1fr;
+  }
+  .about h1 {
+    font-size: 2.2em;
+    display: flex;
+    flex-direction: column;
   }
   .avatar {
     width: 75vw;
