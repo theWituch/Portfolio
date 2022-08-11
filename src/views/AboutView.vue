@@ -20,8 +20,8 @@
           />
         </h1>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, quae! Consequatur omnis id vitae fugit? Ea
-          ipsum delectus repudiandae asperiores.
+          I love to solve problems. Especially when no one else can solve them. Interdisciplinary knowledge combined
+          with passion and hobby drives everything I do.
         </p>
       </div>
       <div class="avatar round">
