@@ -32,6 +32,13 @@ a {
   transition: all 0.4s ease;
 }
 
+p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--gray);
+}
+
 .flex {
   display: flex;
   align-items: center;
