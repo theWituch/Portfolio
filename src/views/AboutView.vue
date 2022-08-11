@@ -24,7 +24,7 @@
           ipsum delectus repudiandae asperiores.
         </p>
       </div>
-      <div class="round">
+      <div class="avatar round">
         <img
           src="https://scontent.fpoz2-1.fna.fbcdn.net/v/t1.6435-9/31159640_1581873875244089_5557646170165084160_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Ifml9Rq8rusAX_Zm2tY&_nc_ht=scontent.fpoz2-1.fna&oh=00_AT_PX1e0c93cjDITF8fJWdVIvGUrTGzurQ_7Wp_XWexJ6g&oe=631848F9"
         />
@@ -61,26 +61,29 @@ export default {
   color: var(--yellow);
 }
 
-.round {
-  margin: auto;
+.avatar {
   width: 80%;
-  aspect-ratio: 1; /* ↔️ is double the ↕️ */
+  aspect-ratio: 1;
   overflow: hidden;
   position: relative;
-  border-radius: 50%;
+  margin: auto;
 }
-.round > img {
+.avatar > img {
   position: absolute;
   top: 50%;
   left: 50%;
   min-width: 100%;
   height: 100%;
   transform: translate(-50%, -50%);
-  transition: 1s ease;
+  transition: 0.3s ease;
 }
-img:hover {
-  height: 120%;
-  transform: translate(-50%, -42%);
+.avatar > img:hover {
+  height: 110%;
+  transform: translate(-50%, -46%);
+}
+
+.round {
+  border-radius: 50%;
 }
 
 /*
@@ -91,10 +94,9 @@ img:hover {
   .about {
     grid-template-columns: 1fr;
   }
-  .round {
-    height: 75vw;
+  .avatar {
     width: 75vw;
-    margin-top: 20pt;
+    margin-top: 30pt;
   }
 }
 </style>
