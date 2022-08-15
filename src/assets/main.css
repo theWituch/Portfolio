@@ -8,7 +8,6 @@
 
 *,
 body {
-  background-color: var(--background);
   color: var(--content);
   transition: color 0.15s ease;
 }
@@ -21,6 +20,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  background-color: var(--background);
 }
 
 a {
@@ -76,6 +76,26 @@ h3 {
 
 .content {
   padding-top: 100px;
+}
+
+.icon {
+  font-size: inherit;
+  font-weight: inherit;
+  background: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 2.4em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.6em;
+  }
 }
 
 @media (min-width: 576px) {

@@ -43,19 +43,65 @@
         architecto aliquam, ex odit? Quidem maiores autem eos, beatae repudiandae inventore tenetur veritatis
         perferendis quaerat. Placeat nobis mollitia et laboriosam veniam earum fugit provident eius quod illo doloribus
         consequatur, eos numquam eum velit tempore, harum dolorem aperiam! Nobis impedit quam modi rem neque nostrum
-        dolor doloremque commodi aspernatur provident libero, autem voluptatum soluta et corporis. Voluptate, tempora.
-        Et itaque, quasi iste reprehenderit asperiores atque ducimus reiciendis vitae omnis libero facere odit fuga
-        aliquam impedit voluptatibus, ea eligendi, minima assumenda temporibus porro voluptatem aspernatur quas?
-        Eligendi asperiores dolores hic! Nemo, eaque ab accusantium beatae velit eos repellat cumque ut quam,
-        voluptatibus, blanditiis autem consequatur? Quae recusandae incidunt, soluta deleniti animi reprehenderit
-        veritatis vitae, beatae sint aperiam, aliquid in necessitatibus! Soluta itaque aliquid culpa at. Saepe dolorem
-        quam quis aliquid nesciunt odit, reiciendis hic minima sint et?
+        dolor doloremque commodi aspernatur provident libero, autem voluptatum soluta et corporis.
       </p>
+    </section>
+
+    <section>
+      <h2 class="text-center">Things I have done or I'm working on now</h2>
+      <div class="tns">
+        <div id="tns">
+          <div class="tns-item">
+            <div class="tns-slide">
+              <a href="test"><img src="@/assets/images/project/project-image01.png" alt="project img" /></a>
+              <p class="desc">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit <a href="#hehe">hehe</a>. Quas, ipsum.
+              </p>
+            </div>
+          </div>
+
+          <div class="tns-item">
+            <div class="tns-slide">
+              <img src="@/assets/images/project/project-image02.png" alt="project img" />
+              <p class="desc">Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+
+          <div class="tns-item">
+            <div class="tns-slide">
+              <img src="@/assets/images/project/project-image03.png" alt="project img" />
+            </div>
+          </div>
+
+          <div class="tns-item">
+            <div class="tns-slide">
+              <img src="@/assets/images/project/project-image04.png" alt="project img" />
+            </div>
+          </div>
+
+          <div class="tns-item">
+            <div class="tns-slide">
+              <img src="@/assets/images/project/project-image05.png" alt="project img" />
+            </div>
+          </div>
+        </div>
+
+        <div class="tns-controls">
+          <button id="prev">
+            <span class="icon material-icons-round">arrow_back</span>
+          </button>
+          <button id="next">
+            <span class="icon material-icons-round">arrow_forward</span>
+          </button>
+        </div>
+      </div>
     </section>
   </div>
 </template>
 
 <script>
+import { tns } from "tiny-slider";
+
 import TextAnimator from "@/components/TextAnimator.vue";
 
 export default {
@@ -63,10 +109,86 @@ export default {
   setup() {
     return {};
   },
+  mounted() {
+     window.tns = tns({
+      container: "#tns",
+      items: 1,
+      slideBy: 1,
+      loop: true,
+      autoplay: true,
+      autoplayButtonOutput: false,
+      speed: 400,
+      autoHeight: true,
+      prevButton: "#prev",
+      nextButton: "#next",
+      navPosition: "bottom",
+      mouseDrag: true,
+    });
+  },
 };
 </script>
 
 <style>
+.tns {
+  margin: auto;
+  position: relative;
+  padding: 1em 0;
+}
+.tns-slide {
+  display: block;
+  max-width: 90%;
+  margin: auto;
+  text-align: center;
+}
+.tns-slide img {
+  margin: 25px auto;
+  display: block;
+  max-width: 90%;
+  filter: drop-shadow(0 2pt 8pt rgb(125, 125, 125));
+}
+.tns-slide .desc {
+  margin: 1.5em auto 25px;
+  line-height: 1.2;
+}
+
+.tns-controls {
+  display: inline-flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 50%;
+  right: 0;
+  left: 0;
+}
+.tns-controls button {
+  border: none;
+  background: none;
+  font-size: 60pt;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tns-controls button:hover {
+  color: var(--yellow);
+}
+.tns-controls button > :first-child {
+  transform: translate(0, 50%);
+}
+
+.tns-nav {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+}
+.tns-nav button {
+  padding: 4px;
+  margin: 1ex;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 50%;
+}
+.tns-nav .tns-nav-active {
+  background: var(--dark);
+}
+
 .about {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -129,5 +251,19 @@ export default {
     width: 75vw;
     margin-top: 30pt;
   }
+
+  .tns-slide img {
+    max-width: 100%;
+    filter: drop-shadow(0 2pt 4pt rgb(125, 125, 125));
+  }
+  .tns-slide .desc {
+    margin: 1em auto;
+  }
+  .tns-controls {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
 }
 </style>
