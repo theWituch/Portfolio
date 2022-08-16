@@ -109,6 +109,21 @@ export default {
   padding: 1em 0;
 }
 
+.tns-item {
+  display: block;
+  max-width: 90%;
+  margin: auto;
+}
+
+.tns-slide {
+  display: block;
+}
+.tns-slide img {
+  margin: auto;
+  display: block;
+  max-width: 100%;
+}
+
 .tns-controls {
   display: inline-flex;
   justify-content: space-between;
@@ -120,12 +135,9 @@ export default {
 .tns-controls button {
   border: none;
   background: none;
-  font-size: 60pt;
+  font-size: 32pt;
   font-weight: 600;
   cursor: pointer;
-}
-.tns-controls button:hover {
-  color: var(--yellow);
 }
 .tns-controls button > :first-child {
   transform: translate(0, 50%);
@@ -144,7 +156,7 @@ export default {
   border-radius: 50%;
 }
 .tns-nav .tns-nav-active {
-  background: var(--dark);
+  background: black;
 }
 
 @media (max-width: 768px) {

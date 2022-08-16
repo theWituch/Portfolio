@@ -239,6 +239,17 @@ export default {
   line-height: 1.2;
 }
 
+.tns-controls button {
+  font-size: 60pt;
+}
+.tns-controls button:hover {
+  color: var(--yellow);
+}
+
+.tns-nav .tns-nav-active {
+  background: var(--dark);
+}
+
 /*
  *  Responsive
  */
@@ -263,9 +274,6 @@ export default {
   }
   .tns-slide .desc {
     margin: 1em auto;
-  }
-  .tns-controls {
-    display: none !important;
   }
 }
 </style>
