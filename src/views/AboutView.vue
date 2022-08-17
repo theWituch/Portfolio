@@ -33,7 +33,7 @@
       </div>
     </section>
 
-    <section class="py-2">
+    <section class="my-4 py-2 row">
       <h2>Lorem, ipsum dolor</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia voluptatibus recusandae inventore
@@ -54,14 +54,25 @@
         quam quis aliquid nesciunt odit, reiciendis hic minima sint et?
       </p>
     </section>
+
+    <section class="my-4 py-2 row">
+      <div class="d-none d-lg-block px-5 col-lg-6 col-12">
+        <img src="@/assets/images/undraw/undraw_envelope.svg" class="img-fluid" alt="Envelope contact image" />
+      </div>
+      <div class="p-3 col-lg-6 col-12">
+        <h2>Interested to work together? Let's talk</h2>
+        <ContactForm />
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 import TextAnimator from "@/components/TextAnimator.vue";
+import ContactForm from "@/components/ContactForm.vue";
 
 export default {
-  components: { TextAnimator },
+  components: { TextAnimator, ContactForm },
   setup() {
     return {};
   },
