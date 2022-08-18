@@ -55,9 +55,23 @@
       </p>
     </section>
 
-    <section class="my-4 py-2 row">
-      <div class="d-none d-lg-block px-5 col-lg-6 col-12">
-        <img src="@/assets/images/undraw/undraw_envelope.svg" class="img-fluid" alt="Envelope contact image" />
+    <section class="my-4 py-2 pe-lg-5 row">
+      <div class="p-3 px-lg-5 col-lg-6 col-12">
+        <img src="@/assets/images/undraw/undraw_envelope.svg" class="img-fluid px-5" alt="Envelope contact image" />
+
+        <div class="contact-info d-flex justify-content-between align-items-center text-white py-3 px-4 px-lg-5">
+          <div class="d-flex flex-column ">
+            <h3 class="mb-3 text-reset">Mateusz Frydrych</h3>
+            <span class="mb-0 text-reset">&nbsp;+48 726 140 859</span>
+            <a href="mailto:thewituch@gmail.com" class="text-reset">&nbsp;thewituch@gmail.com</a>
+          </div>
+          <div class="d-flex flex-column p-0 fs-5 text-light">
+            <a href="https://www.facebook.com/Wituuuuuch" target="blank" rel="noreferrer" class="text-reset">FB</a>
+            <a href="https://github.com/theWituch" target="blank" rel="noreferrer" class="text-reset">GH</a>
+            <a href="#instagram" target="blank" rel="noreferrer" class="text-reset">IG</a>
+            <a href="#youtube" target="blank" rel="noreferrer" class="text-reset">YT</a>
+          </div>
+        </div>
       </div>
       <div class="p-3 col-lg-6 col-12">
         <h2>Interested to work together? Let's talk</h2>
@@ -105,5 +119,9 @@ export default {
 .avatar > img:hover {
   height: 110%;
   transform: translate(-50%, -46%);
+}
+
+.contact-info {
+  background: var(--th-bluegray);
 }
 </style>
