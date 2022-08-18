@@ -62,14 +62,14 @@
         <div class="contact-info d-flex justify-content-between align-items-center text-white py-3 px-4 px-lg-5">
           <div class="d-flex flex-column ">
             <h3 class="mb-3 text-reset">Mateusz Frydrych</h3>
-            <span class="mb-0 text-reset">&nbsp;+48 726 140 859</span>
-            <a href="mailto:thewituch@gmail.com" class="text-reset">&nbsp;thewituch@gmail.com</a>
+            <span class="mb-0 text-reset uil uil-phone">&nbsp;+48 726 140 859</span>
+            <a href="mailto:thewituch@gmail.com" class="text-reset uil uil-envelope">&nbsp;thewituch@gmail.com</a>
           </div>
           <div class="d-flex flex-column p-0 fs-5 text-light">
-            <a href="https://www.facebook.com/Wituuuuuch" target="blank" rel="noreferrer" class="text-reset">FB</a>
-            <a href="https://github.com/theWituch" target="blank" rel="noreferrer" class="text-reset">GH</a>
-            <a href="#instagram" target="blank" rel="noreferrer" class="text-reset">IG</a>
-            <a href="#youtube" target="blank" rel="noreferrer" class="text-reset">YT</a>
+            <a href="https://www.facebook.com/Wituuuuuch" target="blank" rel="noreferrer" class="text-reset uil uil-facebook"></a>
+            <a href="https://github.com/theWituch" target="blank" rel="noreferrer" class="text-reset uil uil-github"></a>
+            <a href="#instagram" target="blank" rel="noreferrer" class="text-reset uil uil-instagram"></a>
+            <a href="#youtube" target="blank" rel="noreferrer" class="text-reset uil uil-youtube"></a>
           </div>
         </div>
       </div>
@@ -84,6 +84,8 @@
 <script>
 import TextAnimator from "@/components/TextAnimator.vue";
 import ContactForm from "@/components/ContactForm.vue";
+
+import "@iconscout/unicons/css/line.css";
 
 export default {
   components: { TextAnimator, ContactForm },
