@@ -1,6 +1,6 @@
 <template>
   <div class="container content">
-    <section class="my-4 py-2 row">
+    <section id="welcome" class="my-4 py-2 row">
       <div class="my-auto col-12 col-lg-8">
         <p class="welcome m-0 px-3 fs-6 fw-bold">Welcome to my portfolio website!</p>
         <h1 class="my-4 d-flex flex-column d-lg-block">
@@ -33,8 +33,8 @@
       </div>
     </section>
 
-    <section class="my-4 py-2 row">
-      <h2>Lorem, ipsum dolor</h2>
+    <section id="aboutme" class="my-4 py-2 row">
+      <h2>About me</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia voluptatibus recusandae inventore
         reprehenderit doloribus consequuntur impedit provident atque maxime omnis, sapiente accusantium beatae magnam!
@@ -55,7 +55,7 @@
       </p>
     </section>
 
-    <section class="my-4 py-2 pe-lg-5 row">
+    <section id="contact" class="my-4 py-2 pe-lg-5 row">
       <div class="p-3 px-lg-5 col-lg-6 col-12">
         <img src="@/assets/images/undraw/undraw_envelope.svg" class="img-fluid px-5" alt="Envelope contact image" />
 

@@ -26,10 +26,9 @@
 
         <div class="navbar-collapse" :class="{ open: !collapsed }">
           <div class="navbar-nav">
-            <router-link class="nav-item nav-link" :to="{ name: 'about' }"> About me </router-link>
-            <router-link class="nav-item nav-link disabled" :to="{ name: 'about' }"> Carrer </router-link>
-            <router-link class="nav-item nav-link disabled" :to="{ name: 'about' }"> Projects </router-link>
-            <router-link class="nav-item nav-link disabled" :to="{ name: 'about' }"> Contact </router-link>
+            <a href="#aboutme" class="nav-item nav-link" :to="{ name: 'aboutme' }">About me</a>
+            <a href="#projects" class="nav-item nav-link" :to="{ name: 'projects' }">Projects</a>
+            <a href="#contact" class="nav-item nav-link" :to="{ name: 'about' }">Contact</a>
           </div>
         </div>
 
