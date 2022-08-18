@@ -1,50 +1,38 @@
 :root {
-  --blue: #007bff;
-  --indigo: #6610f2;
-  --purple: #6f42c1;
-  --pink: #e83e8c;
-  --red: #dc3545;
-  --orange: #fd7e14;
-  --yellow: #ffc107;
-  --green: #28a745;
-  --teal: #20c997;
-  --cyan: #17a2b8;
-  --white: #fff;
-  --gray: #5b5b5b;
-  --gray-dark: #343a40;
-  --primary: #007bff;
-  --secondary: #6c757d;
-  --success: #28a745;
-  --info: #17a2b8;
-  --warning: #ffc107;
-  --danger: #dc3545;
-  --light: #f8f9fa;
-  --dark: #343a40;
-  --darker: #212529;
-  --darkest: #0c0c0d;
-  --black: #000;
+  /* Colors */
+  --th-darker: #212529;
+  --th-darkest: #0c0c0d;
 
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
+  /* Fonts */
+  --th-font-family-sans-serif: "Maven Pro", var(--bs-font-sans-serif);
+}
 
-  --font-family-sans-serif: -apple-system, "Maven Pro", BlinkMacSystemFont, Avenir, "Segoe UI", Roboto, Helvetica,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+:root,
+:root.light-theme {
+  --font-family-body: var(--th-font-family-sans-serif);
 
-  --background: var(--white);
-  --content: var(--darker);
-  --border: var(--light);
-  --accent: var(--gray);
-  --link-hover: var(--yellow);
+  --bs-body-bg: var(--bs-white);
+  --bs-body-color: var(--bs-gray);
+  --th-body-color-accent: var(--th-darker);
+
+  --th-navbar-border-color: var(--bs-gray-300);
+
+  --th-nav-link-color: var(--bs-body-color);
+  --th-nav-link-hover-color: var(--bs-yellow);
+  --th-nav-link-disabled-color: var(--bs-gray-500);
+  --bs-nav-link-font-size: 1em;
+  --bs-nav-link-font-weight: bold;
+
+  --bs-link-hover-color: var(--bs-yellow);
 }
 
 :root.dark-theme {
-  --background: var(--darkest);
-  --content: var(--white);
-  --border: var(--darker);
-  --accent: var(--white);
+  --bs-body-bg: var(--th-darkest);
+  --bs-body-color: var(--bs-gray-500);
+  --th-body-color-accent: var(--bs-white);
+
+  --th-navbar-border-color: var(--bs-gray-900);
+
+  --th-nav-link-color: var(--bs-gray-400);
+  --th-nav-link-disabled-color: var(--bs-gray-700);
 }

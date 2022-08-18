@@ -1,37 +1,39 @@
 <template>
   <transition name="header">
-    <nav v-show="showHeader" class="header" :class="{ scrolled }">
-      <div class="container">
-        <div class="brand">
-          <p>Portfolio logo</p>
-        </div>
+    <nav v-show="showHeader" class="navbar navbar-expand-lg" :class="{ scrolled }">
+      <div class="container py-1">
+        <a class="navbar-brand col-lg-3" href="#">
+          <img
+            src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
+            width="40"
+            class="img-fluid d-inline-block"
+          />
+          Portfolio logo
+        </a>
 
-        <div class="navigation flex">
-          <div class="toggle flex">
-            <button @click="collapsed = !collapsed" class="toggle">
-              <span :class="{ toggled: !collapsed }" class="toggle-icon material-icons" style="font-size: inherit"
-                >menu</span
-              >
-            </button>
+        <button
+          @click="collapsed = !collapsed"
+          class="navbar-toggler"
+          type="button"
+          aria-controls="navbarNav"
+          :aria-expanded="!collapsed"
+          aria-label="Toggle navigation"
+        >
+          <span :class="{ toggled: !collapsed }" class="toggler-icon material-icons" style="font-size: inherit"
+            >menu</span
+          >
+        </button>
+
+        <div class="navbar-collapse" :class="{ open: !collapsed }">
+          <div class="navbar-nav">
+            <router-link class="nav-item nav-link" :to="{ name: 'about' }"> About me </router-link>
+            <router-link class="nav-item nav-link disabled" :to="{ name: 'about' }"> Carrer </router-link>
+            <router-link class="nav-item nav-link disabled" :to="{ name: 'about' }"> Projects </router-link>
+            <router-link class="nav-item nav-link disabled" :to="{ name: 'about' }"> Contact </router-link>
           </div>
-
-          <ul class="nav-list" :class="{ collapsed }">
-            <li>
-              <router-link class="nav-link" :to="{ name: 'about' }"> About me </router-link>
-            </li>
-            <li>
-              <router-link class="nav-link" :to="{ name: 'about' }"> Carrer </router-link>
-            </li>
-            <li>
-              <router-link class="nav-link" :to="{ name: 'about' }"> Projects </router-link>
-            </li>
-            <li>
-              <router-link class="nav-link" :to="{ name: 'about' }"> Contact </router-link>
-            </li>
-          </ul>
         </div>
 
-        <div class="colormode flex">
+        <div class="d-none d-lg-block">
           <DarkModeToggle :placeholder="'Toggle colors'" />
         </div>
       </div>
@@ -82,142 +84,75 @@ export default {
 </script>
 
 <style scoped>
-.header {
+.navbar {
   position: fixed;
   margin: 0 auto;
+  left: 0;
   top: 0;
   right: 0;
-  left: 0;
   z-index: 999999;
-  background: var(--background);
+  background-color: var(--bs-body-bg);
+  color: var(--th-body-color-accent);
+  font-size: 16px;
 }
-
-.header.scrolled {
-  border-bottom: 1px solid var(--border);
+.navbar {
+  --bs-navbar-color: var(--th-body-color-accent);
+  --bs-navbar-brand-color: var(--th-body-color-accent);
 }
-
-.header > .container {
-  min-height: 70px;
-  display: grid;
-  grid-template-columns: 2fr 5fr 1fr;
-  grid-column-gap: 10px;
-  background: inherit;
+.navbar.scrolled {
+  border-bottom: 1px solid var(--th-navbar-border-color);
 }
 
 .header-enter-active,
 .header-leave-active {
   transition: all 0.3s ease;
 }
-
 .header-enter-from,
 .header-leave-to {
   transform: translateY(-100%);
 }
 
-div .brand {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 0 10px;
-  /* TODO: remove when logo added */
-  visibility: hidden;
+.navbar-nav {
+  --bs-nav-link-color: var(--th-nav-link-color);
+  --bs-nav-link-hover-color: var(--th-nav-link-hover-color);
+  --bs-nav-link-disabled-color: var(--th-nav-link-disabled-color);
 }
 
-.nav-list {
-  margin: 0;
-  padding: 0;
-  display: inline-flex;
-  overflow: hidden;
-}
-
-.nav-list li {
-  list-style: none;
+.nav-item {
   width: 100%;
-}
-
-.nav-link {
-  display: block;
-  padding: 10px 20px;
+  text-align: center;
   white-space: nowrap;
   font-weight: bold;
-  font-size: 16px;
-  text-align: center;
-  transition: color 0.3s ease;
 }
 
-.nav-link:hover {
-  color: var(--yellow);
+.navbar-toggler {
+  border: none;
+  box-shadow: none;
+  font-size: 35px;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
 }
 
 /* 
  *  Responsive 
  */
-
 @media (max-width: 768px) {
-  .header > .container {
-    grid-template-columns: 1fr;
-  }
-
-  .toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 12%;
-    z-index: 999998;
-    border: 0;
-    cursor: pointer;
-    font-size: 35px;
-    background-color: transparent;
-  }
-
-  .toggle-icon {
+  .toggler-icon {
     transition: transform 0.4s ease;
   }
-
-  .toggle-icon.toggled {
+  .toggler-icon.toggled {
     transform: rotate(90deg);
   }
 
-  div .navigation {
+  .navbar-collapse {
     overflow: hidden;
-    background: transparent;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 100%;
+    max-height: 0;
+    transition: max-height 1s cubic-bezier(0, 1, 0, 1);
   }
-
-  .nav-list {
-    top: -100%;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--background);
-    border-bottom: 1px solid var(--border);
-    transition: all 0.75s ease;
-  }
-
-  .nav-list.collapsed {
-    transform: translateY(-100%);
-  }
-
-  .scrolled .nav-list {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .colormode {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) {
-  .toggle {
-    visibility: hidden;
-  }
-
-  .nav-list li:first-child {
-    margin-left: 20px;
+  .navbar-collapse.open {
+    max-height: 100vh;
+    transition: max-height 1s ease-out;
   }
 }
 </style>

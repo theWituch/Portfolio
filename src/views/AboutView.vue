@@ -1,9 +1,9 @@
 <template>
   <div class="container content">
-    <section class="about my-4 py-2">
-      <div class="m-auto">
-        <p class="welcome m-0 px-3">Welcome to my portfolio website!</p>
-        <h1 class="my-4">
+    <section class="my-4 py-2 row">
+      <div class="my-auto col-12 col-lg-8">
+        <p class="welcome m-0 px-3 fs-6 fw-bold">Welcome to my portfolio website!</p>
+        <h1 class="my-4 d-flex flex-column d-lg-block">
           <span class="me-3">Hey folks, I'm</span>
           <TextAnimator
             :strings="[
@@ -24,15 +24,17 @@
           with passion and hobby drives everything I do.
         </p>
       </div>
-      <div class="avatar round">
-        <img
-          src="https://scontent.fpoz2-1.fna.fbcdn.net/v/t1.6435-9/31159640_1581873875244089_5557646170165084160_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Ifml9Rq8rusAX_Zm2tY&_nc_ht=scontent.fpoz2-1.fna&oh=00_AT_PX1e0c93cjDITF8fJWdVIvGUrTGzurQ_7Wp_XWexJ6g&oe=631848F9"
-        />
+      <div class="m-auto p-4 p-lg-0 col-12 col-lg-3">
+        <div class="avatar round">
+          <img
+            src="https://scontent.fpoz2-1.fna.fbcdn.net/v/t1.6435-9/31159640_1581873875244089_5557646170165084160_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Ifml9Rq8rusAX_Zm2tY&_nc_ht=scontent.fpoz2-1.fna&oh=00_AT_PX1e0c93cjDITF8fJWdVIvGUrTGzurQ_7Wp_XWexJ6g&oe=631848F9"
+          />
+        </div>
       </div>
     </section>
 
     <section class="py-2">
-      <h2>About me</h2>
+      <h2>Lorem, ipsum dolor</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia voluptatibus recusandae inventore
         reprehenderit doloribus consequuntur impedit provident atque maxime omnis, sapiente accusantium beatae magnam!
@@ -67,32 +69,18 @@ export default {
 </script>
 
 <style>
-.about {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-}
-
-.about .welcome {
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 0.2px;
-  color: var(--accent);
-}
-
-.about h1 {
-  font-size: 2.8em;
+.welcome {
+  color: var(--th-body-color-accent);
 }
 
 .animated-item {
-  color: var(--yellow);
+  color: var(--bs-yellow);
 }
 
 .avatar {
-  width: 80%;
   aspect-ratio: 1;
   overflow: hidden;
   position: relative;
-  margin: auto;
 }
 .avatar > img {
   position: absolute;
@@ -106,28 +94,5 @@ export default {
 .avatar > img:hover {
   height: 110%;
   transform: translate(-50%, -46%);
-}
-
-.round {
-  border-radius: 50%;
-}
-
-/*
- *  Responsive
- */
-
-@media (max-width: 768px) {
-  .about {
-    grid-template-columns: 1fr;
-  }
-  .about h1 {
-    font-size: 2.2em;
-    display: flex;
-    flex-direction: column;
-  }
-  .avatar {
-    width: 75vw;
-    margin-top: 30pt;
-  }
 }
 </style>
