@@ -55,6 +55,6 @@ export default {};
   transition: all 0.4s ease !important;
 }
 .submit-btn:hover {
-  background: var(--bs-gray-700) !important;
+  background: var(--th-bluegray) !important;
 }
 </style>

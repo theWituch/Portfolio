@@ -2,6 +2,7 @@
   /* Colors */
   --th-darker: #212529;
   --th-darkest: #0c0c0d;
+  --th-bluegray: #474559;
 
   /* Fonts */
   --th-font-family-sans-serif: "Maven Pro", var(--bs-font-sans-serif);
