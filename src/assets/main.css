@@ -30,12 +30,18 @@ h1 {
 h2 {
   font-size: 2.4em;
 }
+h3 {
+  font-size: 2em;
+}
 @media (max-width: 768px) {
   h1 {
     font-size: 2.2em;
   }
   h2 {
     font-size: 1.8em;
+  }
+  h3 {
+    font-size: 1.4em;
   }
 }
 
@@ -48,27 +54,6 @@ p {
   font-size: 18px;
   font-weight: 300;
   line-height: 1.5;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: bold;
-}
-
-h1 {
-  font-size: 2.8em;
-}
-
-h2 {
-  font-size: 2.4em;
-}
-
-h3 {
-  font-size: 2em;
 }
 
 .flex {
