@@ -55,6 +55,15 @@
       </p>
     </section>
 
+    <section id="projects" class="my-4 py-2 row">
+      <h2>My projects</h2>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia voluptatibus recusandae inventore
+        reprehenderit doloribus consequuntur impedit provident atque maxime omnis, sapiente accusantium beatae magnam!
+        Repellat perferendis quibusdam reprehenderit sed esse.
+      </p>
+    </section>
+
     <section id="contact" class="my-4 py-2 pe-lg-5 row">
       <div class="p-3 px-lg-5 col-lg-6 col-12">
         <img src="@/assets/images/undraw/undraw_envelope.svg" class="img-fluid px-5" alt="Envelope contact image" />
