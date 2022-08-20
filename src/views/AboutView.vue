@@ -192,6 +192,14 @@ export default {
   filter: none;
   transform: scale(1.25);
 }
+@media (hover: none) {
+  .dark-theme .tile {
+    background-color: #c7c8ce;
+  }
+  .tile img {
+    filter: none !important;
+  }
+}
 
 .contact-info {
   background: var(--th-bluegray);
