@@ -3,6 +3,8 @@
   --th-darker: #212529;
   --th-darkest: #0c0c0d;
   --th-bluegray: #474559;
+  --th-gray-rgb: 108, 117, 125;
+  --th-gray-500-rgb: 173, 181, 189;
 
   /* Fonts */
   --th-font-family-sans-serif: "Maven Pro", var(--bs-font-sans-serif);
@@ -14,6 +16,7 @@
 
   --bs-body-bg: var(--bs-white);
   --bs-body-color: var(--bs-gray);
+  --th-body-color-rgb: var(--th-gray-rgb);
   --th-body-color-accent: var(--th-darker);
 
   --th-navbar-border-color: var(--bs-gray-300);
@@ -30,6 +33,7 @@
 :root.dark-theme {
   --bs-body-bg: var(--th-darkest);
   --bs-body-color: var(--bs-gray-500);
+  --th-body-color-rgb: var(--th-gray-500-rgb);
   --th-body-color-accent: var(--bs-white);
 
   --th-navbar-border-color: var(--bs-gray-900);

@@ -64,6 +64,30 @@
       </p>
     </section>
 
+    <section id="skills">
+      <h2>Skillset I have and technlogies I use</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. At exercitationem vitae similique, quisquam, veritatis
+        labore magnam eos qui nulla laudantium eveniet consequatur, corporis iure amet placeat eum? Aspernatur, ducimus
+        libero.
+      </p>
+      <TileGrid :items="gridItems" v-slot="slotProp" class="grid mb-3">
+        <div class="tile p-0">
+          <a
+            :href="slotProp.tile.url"
+            class="d-flex align-items-center p-2 p-lg-3 w-100 h-100"
+            :alt="slotProp.tile.name"
+          >
+            <img :src="slotProp.tile.image" :alt="slotProp.tile.name" class="m-auto ah-75 aw-75" />
+          </a>
+        </div>
+      </TileGrid>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit beatae numquam blanditiis et ullam, sed nobis
+        culpa in eligendi expedita, assumenda perferendis deleniti sint cupiditate voluptatum ex accusamus dicta aut!
+      </p>
+    </section>
+
     <section id="contact" class="my-4 py-2 pe-lg-5 row">
       <div class="p-3 px-lg-5 col-lg-6 col-12">
         <img src="@/assets/images/undraw/undraw_envelope.svg" class="img-fluid px-5" alt="Envelope contact image" />
@@ -93,13 +117,147 @@
 <script>
 import TextAnimator from "@/components/TextAnimator.vue";
 import ContactForm from "@/components/ContactForm.vue";
+import TileGrid from "@/components/TileGrid.vue";
 
 import "@iconscout/unicons/css/line.css";
 
 export default {
-  components: { TextAnimator, ContactForm },
+  components: { TextAnimator, ContactForm, TileGrid },
   setup() {
-    return {};
+    const gridItems = {
+      java: {
+        name: "Java",
+        url: "https://www.java.com/",
+        image: require("@/assets/images/icons/java.svg"),
+      },
+      javascript: {
+        name: "JavaScript",
+        url: "https://www.javascript.com/",
+        image: require("@/assets/images/icons/javascript.svg"),
+      },
+      php: {
+        name: "PHP",
+        url: "https://www.php.net/",
+        image: require("@/assets/images/icons/php.svg"),
+      },
+      cpp: {
+        name: "C++",
+        url: "https://wikipedia.org/wiki/C++",
+        image: require("@/assets/images/icons/cpp.svg"),
+      },
+      c: {
+        name: "C",
+        url: "https://simple.wikipedia.org/wiki/C_(programming_language)",
+        image: require("@/assets/images/icons/c.svg"),
+      },
+      python: {
+        name: "Python",
+        url: "https://www.python.org/",
+        image: require("@/assets/images/icons/python.svg"),
+      },
+      groovy: {
+        name: "Groovy",
+        url: "https://groovy-lang.org/",
+        image: require("@/assets/images/icons/groovy.svg"),
+      },
+
+      nodejs: {
+        name: "Node.JS",
+        url: "https://www.nodejs.org/",
+        image: require("@/assets/images/icons/nodejs.svg"),
+      },
+      vuejs: {
+        name: "Vue.JS",
+        url: "https://www.vuejs.org/",
+        image: require("@/assets/images/icons/vue-js.svg"),
+      },
+      bootstrap: {
+        name: "Bootstrap",
+        url: "https://getbootstrap.com/",
+        image: require("@/assets/images/icons/bootstrap-5.svg"),
+      },
+      html: {
+        name: "HTML5",
+        url: "https:///",
+        image: require("@/assets/images/icons/html.svg"),
+      },
+      css: {
+        name: "CSS3",
+        url: "https:///",
+        image: require("@/assets/images/icons/css.svg"),
+      },
+
+      git: {
+        name: "Git",
+        url: "https://git-scm.com/",
+        image: require("@/assets/images/icons/git.svg"),
+      },
+      maven: {
+        name: "Maven",
+        url: "https://maven.apache.org/",
+        image: require("@/assets/images/icons/maven.svg"),
+      },
+      gradle: {
+        name: "Gradle",
+        url: "https://gradle.org/",
+        image: require("@/assets/images/icons/gradle.svg"),
+      },
+
+      markdown: {
+        name: "Markdown",
+        image: require("@/assets/images/icons/markdown.svg"),
+      },
+
+      eclipse: {
+        name: "Eclipse IDE",
+        url: "https://www.eclipse.org/",
+        image: require("@/assets/images/icons/eclipse.svg"),
+      },
+      intellij: {
+        name: "IntelliJ IDEA",
+        url: "https://www.jetbrains.com/idea/",
+        image: require("@/assets/images/icons/intellij_idea.svg"),
+      },
+      vscode: {
+        name: "Visial Studio Code",
+        url: "https://code.visualstudio.com/",
+        image: require("@/assets/images/icons/vscode.svg"),
+      },
+
+      arduino: {
+        name: "Arduino",
+        url: "https://www.arduino.cc/",
+        image: require("@/assets/images/icons/arduino.svg"),
+      },
+      mplabx: {
+        name: "MPLAB X IDE",
+        url: "https://www.microchip.com/mplab/",
+        image: require("@/assets/images/icons/mplabx.png"),
+      },
+
+      fusion360: {
+        name: "Fusion360",
+        url: "https://www.autodesk.pl/products/fusion-360/",
+        image: require("@/assets/images/icons/fusion360.png"),
+      },
+      eagle: {
+        name: "Eagle",
+        url: "https://eagle.autodesk.com/eagle",
+        image: require("@/assets/images/icons/eagle.png"),
+      },
+      eplanelectric: {
+        name: "EPLAN Electric",
+        url: "https://www.eplan.com/",
+        image: require("@/assets/images/icons/eplan.png"),
+      },
+    };
+
+    // Tricky insert ID key to each grid item
+    Object.entries(gridItems).forEach((e, i) => {
+      gridItems[e[0]].id = i;
+    });
+
+    return { gridItems };
   },
 };
 </script>
@@ -130,6 +288,37 @@ export default {
 .avatar > img:hover {
   height: 110%;
   transform: translate(-50%, -46%);
+}
+
+.grid {
+  grid-template-columns: repeat(9, 1fr);
+}
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 3px;
+  }
+}
+
+.tile {
+  width: 100%;
+  aspect-ratio: 1.5;
+  background-color: rgba(var(--th-body-color-rgb), 0.1);
+}
+.tile:hover {
+  background-color: var(--bs-light);
+}
+.tile img {
+  max-width: 100%;
+  max-height: 100%;
+  transition: all 0.2s ease;
+}
+.dark-theme .tile img {
+  filter: grayscale(1) invert(0.2);
+}
+.tile:hover img {
+  filter: none;
+  transform: scale(1.25);
 }
 
 .contact-info {
