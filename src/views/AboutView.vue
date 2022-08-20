@@ -64,6 +64,31 @@
       </p>
     </section>
 
+    <section id="skills">
+      <h2>My skill set, tools and technologies that I use</h2>
+      <p>
+        My many years of activities and development on many levels allowed me to master many programming languages,
+        frameworks and tools. Below is a list of the most significant parts of my skill set.
+      </p>
+      <TileGrid :items="skillset" v-slot="slotProp" class="grid mb-3">
+        <div class="tile p-0">
+          <a
+            :href="slotProp.tile.url"
+            class="d-flex align-items-center p-2 p-lg-3 w-100 h-100"
+            :alt="slotProp.tile.name"
+          >
+            <img :src="slotProp.tile.image" :alt="slotProp.tile.name" class="m-auto ah-75 aw-75" />
+          </a>
+        </div>
+      </TileGrid>
+      <p>
+        If You have an order and are looking for a contractor, or You have a problem to solve (especially which noone
+        else can solve) in case the scope matches my list - then
+        <a href="#contact" role="button" class="p-0 text-reset fw-bold">definitely contact me</a>, and together we will
+        definitely work out a solution!
+      </p>
+    </section>
+
     <section id="contact" class="my-4 py-2 pe-lg-5 row">
       <div class="p-3 px-lg-5 col-lg-6 col-12">
         <img src="@/assets/images/undraw/undraw_envelope.svg" class="img-fluid px-5" alt="Envelope contact image" />
@@ -93,13 +118,18 @@
 <script>
 import TextAnimator from "@/components/TextAnimator.vue";
 import ContactForm from "@/components/ContactForm.vue";
+import TileGrid from "@/components/TileGrid.vue";
+
+import SkillsetRepository from "@/repositories/SkillsetRepository";
 
 import "@iconscout/unicons/css/line.css";
 
 export default {
-  components: { TextAnimator, ContactForm },
+  components: { TextAnimator, ContactForm, TileGrid },
   setup() {
-    return {};
+    const skillset = SkillsetRepository.getAll();
+
+    return { skillset };
   },
 };
 </script>
@@ -130,6 +160,62 @@ export default {
 .avatar > img:hover {
   height: 110%;
   transform: translate(-50%, -46%);
+}
+
+.grid {
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 3px;
+}
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 4px;
+  }
+}
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+@media (min-width: 1400px) {
+  .grid {
+    grid-template-columns: repeat(9, 1fr);
+    grid-gap: 5px;
+  }
+}
+
+.tile {
+  width: 100%;
+  aspect-ratio: 1.5;
+  background-color: rgba(var(--th-body-color-rgb), 0.1);
+}
+.tile:hover {
+  background-color: var(--bs-light);
+}
+.tile img {
+  max-width: 100%;
+  max-height: 100%;
+  transition: all 0.2s ease;
+}
+.dark-theme .tile img {
+  filter: grayscale(1) invert(0.2);
+}
+.tile:hover img {
+  filter: none;
+  transform: scale(1.25);
+}
+@media (hover: none) {
+  .dark-theme .tile {
+    background-color: var(--th-whiteblue);
+  }
+  .tile img {
+    filter: none !important;
+  }
 }
 
 .contact-info {
