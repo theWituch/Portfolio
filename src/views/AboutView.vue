@@ -119,14 +119,14 @@ import TextAnimator from "@/components/TextAnimator.vue";
 import ContactForm from "@/components/ContactForm.vue";
 import TileGrid from "@/components/TileGrid.vue";
 
-import useSkillset from "@/composables/useSkillset";
+import SkillsetRepository from "@/repositories/SkillsetRepository";
 
 import "@iconscout/unicons/css/line.css";
 
 export default {
   components: { TextAnimator, ContactForm, TileGrid },
   setup() {
-    const skillset = useSkillset.getAll();
+    const skillset = SkillsetRepository.getAll();
 
     return { skillset };
   },
