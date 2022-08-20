@@ -163,12 +163,29 @@ export default {
 }
 
 .grid {
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 3px;
 }
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .grid {
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 3px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 4px;
+  }
+}
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+@media (min-width: 1400px) {
+  .grid {
+    grid-template-columns: repeat(9, 1fr);
+    grid-gap: 5px;
   }
 }
 
