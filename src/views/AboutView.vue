@@ -71,7 +71,7 @@
         labore magnam eos qui nulla laudantium eveniet consequatur, corporis iure amet placeat eum? Aspernatur, ducimus
         libero.
       </p>
-      <TileGrid :items="gridItems" v-slot="slotProp" class="grid mb-3">
+      <TileGrid :items="skillset" v-slot="slotProp" class="grid mb-3">
         <div class="tile p-0">
           <a
             :href="slotProp.tile.url"
@@ -119,14 +119,16 @@ import TextAnimator from "@/components/TextAnimator.vue";
 import ContactForm from "@/components/ContactForm.vue";
 import TileGrid from "@/components/TileGrid.vue";
 
-import { skillset } from "@/composables/useSkillset";
+import useSkillset from "@/composables/useSkillset";
 
 import "@iconscout/unicons/css/line.css";
 
 export default {
   components: { TextAnimator, ContactForm, TileGrid },
   setup() {
-    return { gridItems: skillset };
+    const skillset = useSkillset.getAll();
+
+    return { skillset };
   },
 };
 </script>
