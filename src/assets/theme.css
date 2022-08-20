@@ -5,6 +5,7 @@
   --th-bluegray: #474559;
   --th-gray-rgb: 108, 117, 125;
   --th-gray-500-rgb: 173, 181, 189;
+  --th-whiteblue: #c7c8ce;
 
   /* Fonts */
   --th-font-family-sans-serif: "Maven Pro", var(--bs-font-sans-serif);

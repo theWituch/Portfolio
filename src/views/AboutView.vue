@@ -211,7 +211,7 @@ export default {
 }
 @media (hover: none) {
   .dark-theme .tile {
-    background-color: #c7c8ce;
+    background-color: var(--th-whiteblue);
   }
   .tile img {
     filter: none !important;
