@@ -65,11 +65,10 @@
     </section>
 
     <section id="skills">
-      <h2>Skillset I have and technlogies I use</h2>
+      <h2>My skill set, tools and technologies that I use</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. At exercitationem vitae similique, quisquam, veritatis
-        labore magnam eos qui nulla laudantium eveniet consequatur, corporis iure amet placeat eum? Aspernatur, ducimus
-        libero.
+        My many years of activities and development on many levels allowed me to master many programming languages,
+        frameworks and tools. Below is a list of the most significant parts of my skill set.
       </p>
       <TileGrid :items="skillset" v-slot="slotProp" class="grid mb-3">
         <div class="tile p-0">
@@ -83,8 +82,10 @@
         </div>
       </TileGrid>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit beatae numquam blanditiis et ullam, sed nobis
-        culpa in eligendi expedita, assumenda perferendis deleniti sint cupiditate voluptatum ex accusamus dicta aut!
+        If You have an order and are looking for a contractor, or You have a problem to solve (especially which noone
+        else can solve) in case the scope matches my list - then
+        <a href="#contact" role="button" class="p-0 text-reset fw-bold">definitely contact me</a>, and together we will
+        definitely work out a solution!
       </p>
     </section>
 
