@@ -1,15 +1,8 @@
 *,
 ::after,
 ::before {
-  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-*,
-body {
-  color: var(--content);
-  transition: color 0.15s ease;
 }
 
 html {
@@ -18,23 +11,8 @@ html {
 }
 
 body {
-  margin: 0;
   min-height: 100vh;
-  background-color: var(--background);
-}
-
-a {
-  color: var(--gray);
-  background-color: transparent;
-  text-decoration: none;
-  transition: all 0.4s ease;
-}
-
-p {
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 1.5;
-  color: var(--gray);
+  font-family: var(--font-family-body);
 }
 
 h1,
@@ -44,18 +22,38 @@ h4,
 h5,
 h6 {
   font-weight: bold;
+  color: var(--th-body-color-accent);
 }
-
 h1 {
   font-size: 2.8em;
 }
-
 h2 {
   font-size: 2.4em;
 }
-
 h3 {
   font-size: 2em;
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2em;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+  h3 {
+    font-size: 1.4em;
+  }
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.5;
 }
 
 .flex {
@@ -67,35 +65,29 @@ h3 {
   display: none !important;
 }
 
-.container {
-  width: 100%;
-  margin: 0 auto !important;
-  padding-right: 15px;
-  padding-left: 15px;
+.round {
+  border-radius: 50%;
 }
 
 .content {
   padding-top: 100px;
 }
 
-.icon {
-  font-size: inherit;
-  font-weight: inherit;
-  background: inherit;
-  color: inherit;
-  line-height: inherit;
-}
-
-@media (max-width: 767px) {
-  h1 {
-    font-size: 2.4em;
-  }
-  h2 {
-    font-size: 2em;
-  }
-  h3 {
-    font-size: 1.6em;
-  }
+/* Change Autocomplete styles in Chrome
+ * https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
+*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid inherit;
+  -webkit-text-fill-color: var(--bs-body-color) !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 @media (min-width: 576px) {

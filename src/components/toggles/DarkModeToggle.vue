@@ -1,15 +1,13 @@
 <template>
-  <div class="flex">
-    <div @click="toggleTheme" class="color-mode">
-      <Transition name="fade-up">
-        <span v-if="darkmode" class="icon material-icons-outlined"> dark_mode</span>
-      </Transition>
-      <Transition name="fade-down">
-        <span v-if="!darkmode" class="icon material-icons-outlined"> light_mode </span>
-      </Transition>
-      <span class="placeholder">{{ placeholder }}</span>
-    </div>
-  </div>
+  <button @click="toggleTheme" class="color-mode">
+    <Transition name="fade-up">
+      <span v-if="darkmode" class="icon material-icons-outlined"> dark_mode</span>
+    </Transition>
+    <Transition name="fade-down">
+      <span v-if="!darkmode" class="icon material-icons-outlined"> light_mode </span>
+    </Transition>
+    <span class="info-text ms-4 ps-1 text-top">{{ placeholder }}</span>
+  </button>
 </template>
 
 <script>
@@ -29,18 +27,15 @@ export default {
 .color-mode {
   position: relative;
   padding: 0;
-  align-items: center;
+  background: none;
+  border: none;
+  color: var(--bs-body-color--accent);
   font-weight: bold;
-  cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .color-mode:hover {
-  color: var(--link-hover);
-}
-
-.color-mode span {
-  color: inherit;
+  color: var(--bs-link-hover-color);
 }
 
 .color-mode span.icon {
@@ -48,11 +43,6 @@ export default {
   top: 0;
   left: 0;
   bottom: 0;
-}
-
-.color-mode span.placeholder {
-  margin-left: 20pt;
-  display: block;
 }
 
 .fade-up-enter-active,
