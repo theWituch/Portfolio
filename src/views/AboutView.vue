@@ -64,25 +64,59 @@
       </p>
     </section>
 
-    <section id="contact" class="my-4 py-2 pe-lg-5 row">
-      <div class="p-3 px-lg-5 col-lg-6 col-12">
-        <img src="@/assets/images/undraw/undraw_envelope.svg" class="img-fluid px-5" alt="Envelope contact image" />
+    <section id="skills" class="my-4 py-2 row">
+      <h2>My skill set, tools and technologies that I use</h2>
+      <p>
+        Many years of activities and development on many levels allowed me to master few programming languages,
+        frameworks and tools. Below is a list of the most significant parts of my skill set.
+      </p>
+      <TileGrid :items="skillset" v-slot="slotProp" class="grid mb-3">
+        <div class="tile p-0">
+          <a
+            :href="slotProp.tile.url"
+            class="d-flex align-items-center p-2 p-lg-3 w-100 h-100"
+            :alt="slotProp.tile.name"
+          >
+            <img :src="slotProp.tile.image" :alt="slotProp.tile.name" class="m-auto ah-75 aw-75" />
+          </a>
+        </div>
+      </TileGrid>
+      <p>
+        If You have an order and are looking for a contractor, or You have a problem to solve (especially which no one
+        else can solve) in case the scope matches my list - then
+        <a href="#contact" role="button" class="p-0 text-reset fw-bold">definitely contact me</a>, and together we will
+        definitely work out a solution!
+      </p>
+    </section>
 
+    <section id="contact" class="my-4 my-lg-5 py-2 row">
+      <div class="my-4 my-lg-0 px-3 px-lg-5 py-xl-3 col-lg-6 col-12">
+        <img src="@/assets/images/undraw/undraw_envelope.svg" class="img-fluid px-5" alt="Envelope contact image" />
         <div class="contact-info d-flex justify-content-between align-items-center text-white py-3 px-4 px-lg-5">
-          <div class="d-flex flex-column ">
+          <div class="d-flex flex-column">
             <h3 class="mb-3 text-reset">Mateusz Frydrych</h3>
             <span class="mb-0 text-reset uil uil-phone">&nbsp;+48 726 140 859</span>
             <a href="mailto:thewituch@gmail.com" class="text-reset uil uil-envelope">&nbsp;thewituch@gmail.com</a>
           </div>
           <div class="d-flex flex-column p-0 fs-5 text-light">
-            <a href="https://www.facebook.com/Wituuuuuch" target="blank" rel="noreferrer" class="text-reset uil uil-facebook"></a>
-            <a href="https://github.com/theWituch" target="blank" rel="noreferrer" class="text-reset uil uil-github"></a>
+            <a
+              href="https://www.facebook.com/Wituuuuuch"
+              target="blank"
+              rel="noreferrer"
+              class="text-reset uil uil-facebook"
+            ></a>
+            <a
+              href="https://github.com/theWituch"
+              target="blank"
+              rel="noreferrer"
+              class="text-reset uil uil-github"
+            ></a>
             <a href="#instagram" target="blank" rel="noreferrer" class="text-reset uil uil-instagram"></a>
             <a href="#youtube" target="blank" rel="noreferrer" class="text-reset uil uil-youtube"></a>
           </div>
         </div>
       </div>
-      <div class="p-3 col-lg-6 col-12">
+      <div class="my-4 my-lg-0 p-3 col-lg-6 col-12">
         <h2>Interested to work together? Let's talk</h2>
         <ContactForm />
       </div>
@@ -93,13 +127,18 @@
 <script>
 import TextAnimator from "@/components/TextAnimator.vue";
 import ContactForm from "@/components/ContactForm.vue";
+import TileGrid from "@/components/TileGrid.vue";
+
+import SkillsetRepository from "@/repositories/SkillsetRepository";
 
 import "@iconscout/unicons/css/line.css";
 
 export default {
-  components: { TextAnimator, ContactForm },
+  components: { TextAnimator, ContactForm, TileGrid },
   setup() {
-    return {};
+    const skillset = SkillsetRepository.getAll();
+
+    return { skillset };
   },
 };
 </script>
@@ -130,6 +169,62 @@ export default {
 .avatar > img:hover {
   height: 110%;
   transform: translate(-50%, -46%);
+}
+
+.grid {
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 3px;
+}
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 4px;
+  }
+}
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+@media (min-width: 1400px) {
+  .grid {
+    grid-template-columns: repeat(9, 1fr);
+    grid-gap: 5px;
+  }
+}
+
+.tile {
+  width: 100%;
+  aspect-ratio: 1.5;
+  background-color: rgba(var(--th-body-color-rgb), 0.1);
+}
+.tile:hover {
+  background-color: var(--bs-light);
+}
+.tile img {
+  max-width: 100%;
+  max-height: 100%;
+  transition: all 0.2s ease;
+}
+.dark-theme .tile img {
+  filter: grayscale(1) invert(0.2);
+}
+.tile:hover img {
+  filter: none;
+  transform: scale(1.25);
+}
+@media (hover: none) {
+  .dark-theme .tile {
+    background-color: var(--th-whiteblue);
+  }
+  .tile img {
+    filter: none !important;
+  }
 }
 
 .contact-info {
