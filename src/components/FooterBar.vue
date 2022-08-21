@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer py-5 mt-auto">
+  <footer class="footer py-2 py-xl-5 mt-auto">
     <div class="container">
       <p class="text-center fs-6">Copyright © 2022. All rights reserved.</p>
       <p class="text-center fs-6">
