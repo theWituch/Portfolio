@@ -67,7 +67,7 @@
     <section id="skills">
       <h2>My skill set, tools and technologies that I use</h2>
       <p>
-        My many years of activities and development on many levels allowed me to master many programming languages,
+        Many years of activities and development on many levels allowed me to master few programming languages,
         frameworks and tools. Below is a list of the most significant parts of my skill set.
       </p>
       <TileGrid :items="skillset" v-slot="slotProp" class="grid mb-3">
@@ -82,7 +82,7 @@
         </div>
       </TileGrid>
       <p>
-        If You have an order and are looking for a contractor, or You have a problem to solve (especially which noone
+        If You have an order and are looking for a contractor, or You have a problem to solve (especially which no one
         else can solve) in case the scope matches my list - then
         <a href="#contact" role="button" class="p-0 text-reset fw-bold">definitely contact me</a>, and together we will
         definitely work out a solution!
