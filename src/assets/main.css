@@ -22,7 +22,7 @@ h4,
 h5,
 h6 {
   font-weight: bold;
-  color: var(--th-body-color-accent)
+  color: var(--th-body-color-accent);
 }
 h1 {
   font-size: 2.8em;

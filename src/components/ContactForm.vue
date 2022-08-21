@@ -10,7 +10,13 @@
       </div>
 
       <div class="col-12">
-        <textarea id="message" name="message" rows="6" placeholder="Message" class="form-control my-2 my-lg-3"></textarea>
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          placeholder="Message"
+          class="form-control my-2 my-lg-3"
+        ></textarea>
       </div>
 
       <div class="d-flex ms-lg-auto col-lg-5 col-12">
