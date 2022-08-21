@@ -64,7 +64,7 @@
       </p>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="my-4 py-2 row">
       <h2>My skill set, tools and technologies that I use</h2>
       <p>
         Many years of activities and development on many levels allowed me to master few programming languages,
@@ -89,8 +89,8 @@
       </p>
     </section>
 
-    <section id="contact" class="my-4 py-2 pe-lg-5 row">
-      <div class="p-3 px-lg-5 col-lg-6 col-12">
+    <section id="contact" class="my-4 my-lg-5 py-2 row">
+      <div class="my-4 my-lg-0 px-3 px-lg-5 py-xl-3 col-lg-6 col-12">
         <img src="@/assets/images/undraw/undraw_envelope.svg" class="img-fluid px-5" alt="Envelope contact image" />
 
         <div class="contact-info d-flex justify-content-between align-items-center text-white py-3 px-4 px-lg-5">
@@ -107,7 +107,7 @@
           </div>
         </div>
       </div>
-      <div class="p-3 col-lg-6 col-12">
+      <div class="my-4 my-lg-0 p-3 col-lg-6 col-12">
         <h2>Interested to work together? Let's talk</h2>
         <ContactForm />
       </div>
