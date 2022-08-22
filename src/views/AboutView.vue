@@ -349,6 +349,9 @@ export default {
   max-width: 90%;
   filter: drop-shadow(0 2pt 8pt rgb(125, 125, 125));
 }
+.dark-theme .tns-slide img {
+  filter: contrast(0.85);
+}
 .tns-slide .desc {
   margin: 1.5em auto 25px;
   line-height: 1.2;
@@ -356,13 +359,19 @@ export default {
 
 .tns-controls button {
   font-size: 60pt;
+  color: var(--th-body-color-accent);
 }
 .tns-controls button:hover {
-  color: var(--yellow);
+  color: var(--bs-yellow);
+}
+.tns-controls button .icon {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
 .tns-nav .tns-nav-active {
-  background: var(--dark);
+  background: var(--bs-gray-700);
 }
 
 /*
