@@ -148,6 +148,7 @@ import TileGrid from "@/components/TileGrid.vue";
 import BootstrapCarousel from "../components/BootstrapCarousel.vue";
 
 import SkillsetRepository from "@/repositories/SkillsetRepository";
+import ProjectsRepository from "@/repositories/ProjectsRepository";
 
 import "@iconscout/unicons/css/line.css";
 
@@ -155,20 +156,7 @@ export default {
   components: { TextAnimator, ContactForm, TileGrid, BootstrapCarousel },
   setup() {
     const skillset = SkillsetRepository.getAll();
-    const projects = Object.values({
-      first: {
-        name: "Some first project",
-        image: require("@/assets/images/project/project-image01.png"),
-      },
-      second: {
-        name: "Some second project",
-        image: require("@/assets/images/project/project-image02.png"),
-      },
-      third: {
-        name: "Some third project",
-        image: require("@/assets/images/project/project-image03.png"),
-      },
-    });
+    const projects = ProjectsRepository.getAll();
 
     return { skillset, projects };
   },
