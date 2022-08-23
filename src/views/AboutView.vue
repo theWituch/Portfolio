@@ -65,11 +65,11 @@
         </template>
 
         <template #controls-prev-content>
-          <span class="icon material-icons-outlined">arrow_back_ios</span>
+          <span class="icon material-icons-round">arrow_back</span>
           <span class="visually-hidden">Previous</span>
         </template>
         <template #controls-next-content>
-          <span class="icon material-icons-outlined">arrow_forward_ios</span>
+          <span class="icon material-icons-round">arrow_forward</span>
           <span class="visually-hidden">Next</span>
         </template>
       </BootstrapCarousel>
@@ -84,7 +84,7 @@
         </template>
 
         <template #controls-prev>
-          <div class="ctrbtn">
+          <div>
             <button>
               <span class="material-icons-round">arrow_back</span>
               <span class="d-none">Previous</span>
@@ -92,7 +92,7 @@
           </div>
         </template>
         <template #controls-next>
-          <div class="ctrbtn">
+          <div>
             <button>
               <span class="material-icons-round">arrow_forward</span>
               <span class="d-none">Previous</span>
@@ -282,7 +282,8 @@ export default {
 }
 .carousel-controls button .icon {
   color: inherit;
-  font-size: 60pt;
+  font-size: 55pt;
+  font-weight: bolder;
 }
 .carousel-item img {
   width: 75%;
@@ -290,7 +291,7 @@ export default {
   filter: drop-shadow(0 2pt 4pt rgb(125, 125, 125));
 }
 .dark-theme .carousel-item img {
-  filter: contrast(0.85);
+  filter: contrast(0.85) drop-shadow(0 2pt 4pt rgb(175, 175, 175));
 }
 @media (pointer: coarse) {
   .carousel-item img {
@@ -308,11 +309,10 @@ export default {
   width: 8px !important;
   height: 0 !important;
   padding-bottom: 8px !important;
-  margin: 0 0.4em !important;
+  margin: 0 0.5em !important;
   background-color: var(--th-body-color-accent) !important;
   border-radius: 50% !important;
 }
-
 
 .tns-controls > div {
   display: flex;
@@ -320,7 +320,7 @@ export default {
   justify-content: center;
 }
 .tns-controls button {
-  font-size: 60pt;
+  font-size: 55pt;
 }
 
 .tns-item .slide {
@@ -328,10 +328,10 @@ export default {
 }
 .tns-item img {
   padding: 10px;
-  filter: drop-shadow(0 2pt 3pt rgb(125, 125, 125));
+  filter: drop-shadow(0 2pt 2pt rgb(125, 125, 125));
 }
 .dark-theme .tns-item img {
-  filter: contrast(0.85) drop-shadow(0 2pt 3pt rgb(175, 175, 175));
+  filter: contrast(0.85) drop-shadow(0 2pt 2pt rgb(175, 175, 175));
 }
 @media (min-width: 768px) {
   .tns-item .slide {
@@ -339,20 +339,19 @@ export default {
   }
   .tns-item img {
     padding: 25px;
-    filter: drop-shadow(0 2pt 8pt rgb(200, 200, 200));
+    filter: drop-shadow(0 2pt 4pt rgb(125, 125, 125));
   }
   .dark-theme .tns-item img {
-    filter: contrast(0.85) drop-shadow(0 2pt 8pt rgb(175, 175, 175));
+    filter: contrast(0.85) drop-shadow(0 2pt 4pt rgb(175, 175, 175));
   }
 }
 
 .tns-nav button {
-  padding: 4px !important;
-  aspect-ratio: 1 !important;
-  margin: 0 0.5em !important;
-  border-radius: 50% !important;
-}
-.tns-nav .tns-nav-active {
-  background: var(--bs-gray-700) !important;
+  padding: 4px;
+  aspect-ratio: 1;
+  margin: 0 0.5em;
+  border-radius: 50%;
+  background: var(--th-body-color-accent);
+  opacity: 0.5;
 }
 </style>

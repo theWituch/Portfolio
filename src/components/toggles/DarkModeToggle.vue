@@ -31,7 +31,7 @@ export default {
   padding: 0;
   background: none;
   border: none;
-  color: var(--bs-body-color--accent);
+  color: var(--th-body-color-accent);
   font-weight: bold;
   transition: color 0.3s ease;
 }
