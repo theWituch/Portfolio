@@ -57,24 +57,7 @@
         Repellat perferendis quibusdam reprehenderit sed esse.
       </p>
 
-      <BootstrapCarousel :id="'carousel-projects'" :items="projects">
-        <template v-slot="{ index, item, start }">
-          <div class="carousel-item py-3" :class="{ active: index == start }">
-            <img class="d-block m-auto" :src="item.image" :alt="item.name" />
-          </div>
-        </template>
-
-        <template #controls-prev-content>
-          <span class="icon material-icons-round">arrow_back</span>
-          <span class="visually-hidden">Previous</span>
-        </template>
-        <template #controls-next-content>
-          <span class="icon material-icons-round">arrow_forward</span>
-          <span class="visually-hidden">Next</span>
-        </template>
-      </BootstrapCarousel>
-
-      <TinySlider :id="'gutter'" :data="projects" :items="1" :preventScrollOnTouch="'force'" class="my-1">
+      <TinySlider :id="'tns-projects'" :data="projects" :items="1" :preventScrollOnTouch="'force'" class="my-1">
         <template #slide="{ item }">
           <div>
             <div class="slide">
@@ -166,7 +149,6 @@
 import TextAnimator from "@/components/TextAnimator.vue";
 import ContactForm from "@/components/ContactForm.vue";
 import TileGrid from "@/components/TileGrid.vue";
-import BootstrapCarousel from "../components/BootstrapCarousel.vue";
 import TinySlider from "@/components/TinySlider.vue";
 
 import SkillsetRepository from "@/repositories/SkillsetRepository";
@@ -175,7 +157,7 @@ import ProjectsRepository from "@/repositories/ProjectsRepository";
 import "@iconscout/unicons/css/line.css";
 
 export default {
-  components: { TextAnimator, ContactForm, TileGrid, BootstrapCarousel, TinySlider },
+  components: { TextAnimator, ContactForm, TileGrid, TinySlider },
   setup() {
     const skillset = SkillsetRepository.getAll();
     const projects = ProjectsRepository.getAll();
@@ -269,51 +251,6 @@ export default {
   }
 }
 
-.contact-info {
-  background: var(--th-bluegray);
-}
-
-.carousel-controls button {
-  opacity: 1;
-  color: var(--th-body-color-accent);
-}
-.carousel-controls button:hover {
-  color: var(--bs-yellow);
-}
-.carousel-controls button .icon {
-  color: inherit;
-  font-size: 55pt;
-  font-weight: bolder;
-}
-.carousel-item img {
-  width: 75%;
-  margin: 10px;
-  filter: drop-shadow(0 2pt 4pt rgb(125, 125, 125));
-}
-.dark-theme .carousel-item img {
-  filter: contrast(0.85) drop-shadow(0 2pt 4pt rgb(175, 175, 175));
-}
-@media (pointer: coarse) {
-  .carousel-item img {
-    width: 90%;
-  }
-  .carousel-controls {
-    display: none;
-  }
-}
-.carousel-indicators {
-  position: relative !important;
-  margin-top: 1em;
-}
-.carousel-indicators button {
-  width: 8px !important;
-  height: 0 !important;
-  padding-bottom: 8px !important;
-  margin: 0 0.5em !important;
-  background-color: var(--th-body-color-accent) !important;
-  border-radius: 50% !important;
-}
-
 .tns-controls > div {
   display: flex;
   align-items: center;
@@ -353,5 +290,9 @@ export default {
   border-radius: 50%;
   background: var(--th-body-color-accent);
   opacity: 0.5;
+}
+
+.contact-info {
+  background: var(--th-bluegray);
 }
 </style>
