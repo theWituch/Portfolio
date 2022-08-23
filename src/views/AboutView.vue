@@ -62,6 +62,23 @@
         reprehenderit doloribus consequuntur impedit provident atque maxime omnis, sapiente accusantium beatae magnam!
         Repellat perferendis quibusdam reprehenderit sed esse.
       </p>
+
+      <BootstrapCarousel :id="'carousel-projects'" :items="projects">
+        <template v-slot="{ index, item, start }">
+          <div class="carousel-item py-3" :class="{ active: index == start }">
+            <img class="d-block m-auto" :src="item.image" :alt="item.name" />
+          </div>
+        </template>
+
+        <template #controls-prev-content>
+          <span class="icon material-icons-outlined">arrow_back_ios</span>
+          <span class="visually-hidden">Previous</span>
+        </template>
+        <template #controls-next-content>
+          <span class="icon material-icons-outlined">arrow_forward_ios</span>
+          <span class="visually-hidden">Next</span>
+        </template>
+      </BootstrapCarousel>
     </section>
 
     <section id="skills" class="my-4 py-2 row">
@@ -128,17 +145,20 @@
 import TextAnimator from "@/components/TextAnimator.vue";
 import ContactForm from "@/components/ContactForm.vue";
 import TileGrid from "@/components/TileGrid.vue";
+import BootstrapCarousel from "../components/BootstrapCarousel.vue";
 
 import SkillsetRepository from "@/repositories/SkillsetRepository";
+import ProjectsRepository from "@/repositories/ProjectsRepository";
 
 import "@iconscout/unicons/css/line.css";
 
 export default {
-  components: { TextAnimator, ContactForm, TileGrid },
+  components: { TextAnimator, ContactForm, TileGrid, BootstrapCarousel },
   setup() {
     const skillset = SkillsetRepository.getAll();
+    const projects = ProjectsRepository.getAll();
 
-    return { skillset };
+    return { skillset, projects };
   },
 };
 </script>
@@ -229,5 +249,87 @@ export default {
 
 .contact-info {
   background: var(--th-bluegray);
+}
+
+.carousel-controls button {
+  opacity: 1;
+  color: var(--th-body-color-accent);
+}
+.carousel-controls button:hover {
+  color: var(--bs-yellow);
+}
+.carousel-controls button .icon {
+  color: inherit;
+  font-size: 60pt;
+}
+.carousel-item img {
+  width: 75%;
+  margin: 10px;
+  filter: drop-shadow(0 2pt 4pt rgb(125, 125, 125));
+}
+.dark-theme .carousel-item img {
+  filter: contrast(0.85);
+}
+@media (pointer: coarse) {
+  .carousel-item img {
+    width: 90%;
+  }
+  .carousel-controls {
+    display: none;
+  }
+}
+.carousel-indicators {
+  position: relative !important;
+  margin-top: 1em;
+}
+.carousel-indicators button {
+  width: 8px !important;
+  height: 0 !important;
+  padding-bottom: 8px !important;
+  margin: 0 0.4em !important;
+  background-color: var(--th-body-color-accent) !important;
+  border-radius: 50% !important;
+}
+
+.tns-slide {
+  display: block;
+  max-width: 90%;
+  margin: auto;
+  text-align: center;
+}
+.tns-slide img {
+  margin: 25px auto;
+  display: block;
+  max-width: 90%;
+  filter: drop-shadow(0 2pt 8pt rgb(125, 125, 125));
+}
+.tns-slide .desc {
+  margin: 1.5em auto 25px;
+  line-height: 1.2;
+}
+
+.tns-controls button {
+  font-size: 60pt;
+}
+.tns-controls button:hover {
+  color: var(--yellow);
+}
+
+.tns-nav .tns-nav-active {
+  background: var(--dark);
+}
+
+/*
+ *  Responsive
+ */
+
+@media (max-width: 768px) {
+  .tns-slide img {
+    max-width: 100%;
+    filter: drop-shadow(0 2pt 4pt rgb(125, 125, 125));
+  }
+  .tns-slide .desc {
+    margin: 1em auto;
+  }
 }
 </style>
