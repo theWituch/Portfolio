@@ -2,28 +2,27 @@
 const projects = {
   first: {
     name: "Some first project",
-    image: require("@/assets/images/project/project-image01.png"),
+    image: require("@/assets/images/project/project-placeholder.png"),
     category: ["project", "special"],
   },
   second: {
     name: "Some second project",
-    image: require("@/assets/images/project/project-image02.png"),
+    image: require("@/assets/images/project/project-placeholder.png"),
     category: ["project"],
   },
   third: {
     name: "Some third project",
-    image: require("@/assets/images/project/project-image03.png"),
+    image: require("@/assets/images/project/project-placeholder.png"),
     category: ["project"],
   },
   fourth: {
     name: "Some fourth project",
-    url: "https://www.javascript.com/",
-    image: require("@/assets/images/project/project-image04.png"),
+    image: require("@/assets/images/project/project-placeholder.png"),
     category: ["project", "special"],
   },
   fifth: {
     name: "Some fifth project",
-    image: require("@/assets/images/project/project-image05.png"),
+    image: require("@/assets/images/project/project-placeholder.png"),
     category: ["project"],
   },
 };
