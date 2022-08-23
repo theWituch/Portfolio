@@ -45,13 +45,7 @@
         architecto aliquam, ex odit? Quidem maiores autem eos, beatae repudiandae inventore tenetur veritatis
         perferendis quaerat. Placeat nobis mollitia et laboriosam veniam earum fugit provident eius quod illo doloribus
         consequatur, eos numquam eum velit tempore, harum dolorem aperiam! Nobis impedit quam modi rem neque nostrum
-        dolor doloremque commodi aspernatur provident libero, autem voluptatum soluta et corporis. Voluptate, tempora.
-        Et itaque, quasi iste reprehenderit asperiores atque ducimus reiciendis vitae omnis libero facere odit fuga
-        aliquam impedit voluptatibus, ea eligendi, minima assumenda temporibus porro voluptatem aspernatur quas?
-        Eligendi asperiores dolores hic! Nemo, eaque ab accusantium beatae velit eos repellat cumque ut quam,
-        voluptatibus, blanditiis autem consequatur? Quae recusandae incidunt, soluta deleniti animi reprehenderit
-        veritatis vitae, beatae sint aperiam, aliquid in necessitatibus! Soluta itaque aliquid culpa at. Saepe dolorem
-        quam quis aliquid nesciunt odit, reiciendis hic minima sint et?
+        dolor doloremque commodi aspernatur provident libero, autem voluptatum soluta et corporis.
       </p>
     </section>
 
@@ -79,6 +73,33 @@
           <span class="visually-hidden">Next</span>
         </template>
       </BootstrapCarousel>
+
+      <TinySlider :id="'gutter'" :data="projects" :items="1" :preventScrollOnTouch="'force'" class="my-1">
+        <template #slide="{ item }">
+          <div>
+            <div class="slide">
+              <img :src="item.image" class="d-block w-100" :alt="item.name" />
+            </div>
+          </div>
+        </template>
+
+        <template #controls-prev>
+          <div class="ctrbtn">
+            <button>
+              <span class="material-icons-round">arrow_back</span>
+              <span class="d-none">Previous</span>
+            </button>
+          </div>
+        </template>
+        <template #controls-next>
+          <div class="ctrbtn">
+            <button>
+              <span class="material-icons-round">arrow_forward</span>
+              <span class="d-none">Previous</span>
+            </button>
+          </div>
+        </template>
+      </TinySlider>
     </section>
 
     <section id="skills" class="my-4 py-2 row">
@@ -146,6 +167,7 @@ import TextAnimator from "@/components/TextAnimator.vue";
 import ContactForm from "@/components/ContactForm.vue";
 import TileGrid from "@/components/TileGrid.vue";
 import BootstrapCarousel from "../components/BootstrapCarousel.vue";
+import TinySlider from "@/components/TinySlider.vue";
 
 import SkillsetRepository from "@/repositories/SkillsetRepository";
 import ProjectsRepository from "@/repositories/ProjectsRepository";
@@ -153,7 +175,7 @@ import ProjectsRepository from "@/repositories/ProjectsRepository";
 import "@iconscout/unicons/css/line.css";
 
 export default {
-  components: { TextAnimator, ContactForm, TileGrid, BootstrapCarousel },
+  components: { TextAnimator, ContactForm, TileGrid, BootstrapCarousel, TinySlider },
   setup() {
     const skillset = SkillsetRepository.getAll();
     const projects = ProjectsRepository.getAll();
@@ -291,45 +313,46 @@ export default {
   border-radius: 50% !important;
 }
 
-.tns-slide {
-  display: block;
-  max-width: 90%;
-  margin: auto;
-  text-align: center;
-}
-.tns-slide img {
-  margin: 25px auto;
-  display: block;
-  max-width: 90%;
-  filter: drop-shadow(0 2pt 8pt rgb(125, 125, 125));
-}
-.tns-slide .desc {
-  margin: 1.5em auto 25px;
-  line-height: 1.2;
-}
 
+.tns-controls > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .tns-controls button {
   font-size: 60pt;
 }
-.tns-controls button:hover {
-  color: var(--yellow);
+
+.tns-item .slide {
+  margin: 0 auto;
+}
+.tns-item img {
+  padding: 10px;
+  filter: drop-shadow(0 2pt 3pt rgb(125, 125, 125));
+}
+.dark-theme .tns-item img {
+  filter: contrast(0.85) drop-shadow(0 2pt 3pt rgb(175, 175, 175));
+}
+@media (min-width: 768px) {
+  .tns-item .slide {
+    width: 80%;
+  }
+  .tns-item img {
+    padding: 25px;
+    filter: drop-shadow(0 2pt 8pt rgb(200, 200, 200));
+  }
+  .dark-theme .tns-item img {
+    filter: contrast(0.85) drop-shadow(0 2pt 8pt rgb(175, 175, 175));
+  }
 }
 
+.tns-nav button {
+  padding: 4px !important;
+  aspect-ratio: 1 !important;
+  margin: 0 0.5em !important;
+  border-radius: 50% !important;
+}
 .tns-nav .tns-nav-active {
-  background: var(--dark);
-}
-
-/*
- *  Responsive
- */
-
-@media (max-width: 768px) {
-  .tns-slide img {
-    max-width: 100%;
-    filter: drop-shadow(0 2pt 4pt rgb(125, 125, 125));
-  }
-  .tns-slide .desc {
-    margin: 1em auto;
-  }
+  background: var(--bs-gray-700) !important;
 }
 </style>
