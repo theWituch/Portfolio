@@ -57,115 +57,31 @@
         Repellat perferendis quibusdam reprehenderit sed esse.
       </p>
 
-      <TinySlider :tns-id="'tns-jeden'" :autoplay="true" :controlsContainer="'#tns-jeden-controls'">
-        <template #controls>
-          <div id="tns-jeden-controls" class="tns-controls">
+      <TinySlider :id="'gutter'" :data="projects" :items="1" :preventScrollOnTouch="'force'" class="my-1">
+        <template #slide="{ item }">
+          <div>
+            <div class="slide">
+              <img :src="item.image" class="d-block w-100" :alt="item.name" />
+            </div>
+          </div>
+        </template>
+
+        <template #controls-prev>
+          <div class="ctrbtn">
             <button>
-              <span class="icon material-icons-round">arrow_back_ios</span>
+              <span class="material-icons-round">arrow_back</span>
+              <span class="d-none">Previous</span>
             </button>
+          </div>
+        </template>
+        <template #controls-next>
+          <div class="ctrbtn">
             <button>
-              <span class="icon material-icons-round">arrow_forward_ios</span>
+              <span class="material-icons-round">arrow_forward</span>
+              <span class="d-none">Previous</span>
             </button>
           </div>
         </template>
-
-        <template #prevButton>
-          <button>
-            <span class="icon material-icons-round">arrow_back</span>
-          </button>
-        </template>
-        <template #nextButton>
-          <button>
-            <span class="icon material-icons-round">arrow_forward</span>
-          </button>
-        </template>
-
-        <div class="tns-item">
-          <div class="tns-slide">
-            <a href="test"><img src="@/assets/images/project/project-image01.png" alt="project img" /></a>
-            <p class="desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit <a href="#hehe">hehe</a>. Quas, ipsum.
-            </p>
-          </div>
-        </div>
-        <div class="tns-item">
-          <div class="tns-slide">
-            <img src="@/assets/images/project/project-image02.png" alt="project img" />
-            <p class="desc">Lorem ipsum dolor sit amet consectetur.</p>
-          </div>
-        </div>
-        <div class="tns-item">
-          <div class="tns-slide">
-            <img src="@/assets/images/project/project-image03.png" alt="project img" />
-          </div>
-        </div>
-        <div class="tns-item">
-          <div class="tns-slide">
-            <img src="@/assets/images/project/project-image04.png" alt="project img" />
-          </div>
-        </div>
-        <div class="tns-item">
-          <div class="tns-slide">
-            <img src="@/assets/images/project/project-image05.png" alt="project img" />
-          </div>
-        </div>
-      </TinySlider>
-
-      <TinySlider :tns-id="'tns-dwa'" :autoplay="true">
-        <template #prevButton>
-          <button>
-            <span class="icon material-icons-round">arrow_back</span>
-          </button>
-        </template>
-        <template #nextButton>
-          <button>
-            <span class="icon material-icons-round">arrow_forward</span>
-          </button>
-        </template>
-
-        <div class="tns-item">
-          <div class="tns-slide">
-            <a href="test"><img src="@/assets/images/project/project-image01.png" alt="project img" /></a>
-            <p class="desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit <a href="#hehe">hehe</a>. Quas, ipsum.
-            </p>
-          </div>
-        </div>
-        <div class="tns-item">
-          <div class="tns-slide">
-            <img src="@/assets/images/project/project-image02.png" alt="project img" />
-            <p class="desc">Lorem ipsum dolor sit amet consectetur.</p>
-          </div>
-        </div>
-        <div class="tns-item">
-          <div class="tns-slide">
-            <img src="@/assets/images/project/project-image04.png" alt="project img" />
-          </div>
-        </div>
-        <div class="tns-item">
-          <div class="tns-slide">
-            <img src="@/assets/images/project/project-image05.png" alt="project img" />
-          </div>
-        </div>
-      </TinySlider>
-
-      <TinySlider :tns-id="'tns2'">
-        <div class="tns-item">
-          <div class="tns-slide">
-            <img src="@/assets/images/project/project-image02.png" alt="project img" />
-            <p class="desc">Lorem ipsum dolor sit amet consectetur.</p>
-          </div>
-        </div>
-        <div class="tns-item">
-          <div class="tns-slide">
-            <img src="@/assets/images/project/project-image04.png" alt="project img" />
-          </div>
-        </div>
-        <div class="tns-item">
-          <div class="tns-slide">
-            <img src="@/assets/images/project/project-image05.png" alt="project img" />
-          </div>
-        </div>
       </TinySlider>
     </section>
 
@@ -243,8 +159,22 @@ export default {
   components: { TextAnimator, ContactForm, TileGrid, TinySlider },
   setup() {
     const skillset = SkillsetRepository.getAll();
+    const projects = Object.values({
+      first: {
+        name: "Some first project",
+        image: require("@/assets/images/project/project-image01.png"),
+      },
+      second: {
+        name: "Some second project",
+        image: require("@/assets/images/project/project-image02.png"),
+      },
+      third: {
+        name: "Some third project",
+        image: require("@/assets/images/project/project-image03.png"),
+      },
+    });
 
-    return { skillset };
+    return { skillset, projects };
   },
 };
 </script>
@@ -337,54 +267,45 @@ export default {
   background: var(--th-bluegray);
 }
 
-.tns-slide {
-  display: block;
-  max-width: 90%;
-  margin: auto;
-  text-align: center;
+.tns-controls > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.tns-slide img {
-  margin: 25px auto;
-  display: block;
-  max-width: 90%;
-  filter: drop-shadow(0 2pt 8pt rgb(125, 125, 125));
-}
-.dark-theme .tns-slide img {
-  filter: contrast(0.85);
-}
-.tns-slide .desc {
-  margin: 1.5em auto 25px;
-  line-height: 1.2;
-}
-
 .tns-controls button {
   font-size: 60pt;
-  color: var(--th-body-color-accent);
-}
-.tns-controls button:hover {
-  color: var(--bs-yellow);
-}
-.tns-controls button .icon {
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
 }
 
+.tns-item .slide {
+  margin: 0 auto;
+}
+.tns-item img {
+  padding: 10px;
+  filter: drop-shadow(0 2pt 3pt rgb(125, 125, 125));
+}
+.dark-theme .tns-item img {
+  filter: contrast(0.85) drop-shadow(0 2pt 3pt rgb(175, 175, 175));
+}
+@media (min-width: 768px) {
+  .tns-item .slide {
+    width: 80%;
+  }
+  .tns-item img {
+    padding: 25px;
+    filter: drop-shadow(0 2pt 8pt rgb(200, 200, 200));
+  }
+  .dark-theme .tns-item img {
+    filter: contrast(0.85) drop-shadow(0 2pt 8pt rgb(175, 175, 175));
+  }
+}
+
+.tns-nav button {
+  padding: 4px !important;
+  aspect-ratio: 1 !important;
+  margin: 0 0.5em !important;
+  border-radius: 50% !important;
+}
 .tns-nav .tns-nav-active {
-  background: var(--bs-gray-700);
-}
-
-/*
- *  Responsive
- */
-
-@media (max-width: 768px) {
-  .tns-slide img {
-    max-width: 100%;
-    filter: drop-shadow(0 2pt 4pt rgb(125, 125, 125));
-  }
-  .tns-slide .desc {
-    margin: 1em auto;
-  }
+  background: var(--bs-gray-700) !important;
 }
 </style>

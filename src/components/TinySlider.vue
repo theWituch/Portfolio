@@ -1,17 +1,41 @@
 <template>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" />
-
   <div class="tns">
-    <div :id="tnsId">
-      <slot>Here will be placed tiny slider content.</slot>
-    </div>
-    <slot name="controls">
-      <div :id="tnsControlsId" class="tns-controls">
-        <slot name="prevButton">
-          <button>&lt;</button>
+    <div class="tns-wrapper">
+      <div :id="id">
+        <slot v-if="!data">If data not passed then process default slot from parent</slot>
+        <slot v-else name="slide" v-for="(item, index) in data" :key="index" :id="id" :index="index" :item="item">
+          <div>
+            <div class="dummy">
+              <span class="d-block w-100 h-100">{{ index }}:{{ item }}</span>
+            </div>
+          </div>
         </slot>
-        <slot name="nextButton">
-          <button>&gt;</button>
+      </div>
+
+      <slot name="controls" :id="id">
+        <div class="tns-controls">
+          <slot name="controls-prev" :id="id">
+            <button>
+              <span class="material-icons-round">arrow_back_ios</span>
+              <span class="d-none">Previous</span>
+            </button>
+          </slot>
+          <slot name="controls-next" :id="id">
+            <button>
+              <span class="material-icons-round">arrow_forward_ios</span>
+              <span class="d-none">Next</span>
+            </button>
+          </slot>
+        </div>
+      </slot>
+    </div>
+
+    <slot name="navigation" :id="id" :data="data">
+      <div :id="navContainer" class="tns-nav my-1" aria-label="Carousel Pagination">
+        <slot name="navigation-item" v-for="(item, index) in data" :key="index" :index="index" :item="item">
+          <button type="button">
+            <span class="d-none">{{ index }}</span>
+          </button>
         </slot>
       </div>
     </slot>
@@ -20,14 +44,21 @@
 
 <script>
 import { tns } from "tiny-slider";
-import { computed, onMounted, onUpdated } from "@vue/runtime-core";
+import { onMounted, onUpdated } from "@vue/runtime-core";
+
+import "tiny-slider/dist/tiny-slider.css";
+import "material-icons/iconfont/round.css";
 
 export default {
   props: {
-    tnsId: {
+    id: {
       type: String,
       required: true,
       default: "tns",
+    },
+    data: {
+      type: Object,
+      required: true,
     },
     items: {
       type: Number,
@@ -37,50 +68,61 @@ export default {
       type: Number,
       default: 1,
     },
+    speed: {
+      type: Number,
+      default: 400,
+    },
     loop: {
       type: Boolean,
       default: true,
     },
     autoplay: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     autoplayButtonOutput: {
       type: Boolean,
       default: false,
     },
-    speed: {
+    center: {
+      type: Boolean,
+      default: false,
+    },
+    gutter: {
       type: Number,
-      default: 400,
+      default: 0,
     },
     autoHeight: {
       type: Boolean,
       default: true,
     },
-    navPosition: {
+    controlsContainer: {
       type: String,
-      default: "bottom",
+      default: ".tns-controls",
+    },
+    navContainer: {
+      type: String,
+      default: ".tns-nav",
     },
     mouseDrag: {
       type: Boolean,
       default: true,
     },
-    controlsContainer: {
+    swipeAngle: {
+      type: Number,
+      default: 15,
+    },
+    preventScrollOnTouch: {
       type: String,
-      default: null,
+      default: "auto",
     },
   },
   setup(props) {
-    const tnsControlsId = props.tnsId + "-controls";
-
-    const controls = computed(() => {
-      return props.controlsContainer ? props.controlsContainer : "#" + tnsControlsId;
-    });
-
     let tnsInstance = null;
+
     onMounted(() => {
       tnsInstance = tns({
-        container: "#" + props.tnsId,
+        container: "#" + props.id,
         items: props.items,
         slideBy: props.slideBy,
         loop: props.loop,
@@ -88,80 +130,99 @@ export default {
         autoplayButtonOutput: props.autoplayButtonOutput,
         speed: props.speed,
         autoHeight: props.autoHeight,
-        controlsContainer: controls.value,
-        navPosition: props.navPosition,
+        controlsContainer: props.controlsContainer,
+        navContainer: props.navContainer,
         mouseDrag: props.mouseDrag,
+        gutter: props.gutter,
+        swipeAngle: props.swipeAngle,
+        center: props.center,
+        preventScrollOnTouch: props.preventScrollOnTouch,
       });
     });
+
     onUpdated(() => {
       tnsInstance.rebuild();
     });
 
-    return { tnsControlsId };
+    return {};
   },
 };
 </script>
 
 <style>
-.tns {
-  margin: auto;
+.tns-wrapper {
   position: relative;
-  padding: 1em 0;
-}
-
-.tns-item {
-  display: block;
-  max-width: 90%;
-  margin: auto;
-}
-
-.tns-slide {
-  display: block;
-}
-.tns-slide img {
-  margin: auto;
-  display: block;
-  max-width: 100%;
+  width: 100%;
 }
 
 .tns-controls {
-  display: inline-flex;
-  justify-content: space-between;
+  height: 100%;
+  z-index: 2;
   position: absolute;
-  bottom: 50%;
+  bottom: 0;
   right: 0;
   left: 0;
+  display: inline-flex;
+  justify-content: space-between;
+  pointer-events: none;
 }
 .tns-controls button {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   background: none;
-  font-size: 32pt;
-  font-weight: 600;
-  cursor: pointer;
+  font-size: 2em;
+  font-weight: bolder;
+  color: var(--th-body-color-accent);
+  pointer-events: all;
 }
-.tns-controls button > :first-child {
-  transform: translate(0, 50%);
+.tns-controls button:hover {
+  color: var(--bs-link-hover-color);
 }
 
 .tns-nav {
   width: 100%;
+  position: relative;
   display: inline-flex;
   justify-content: center;
+  z-index: 3;
 }
 .tns-nav button {
-  padding: 4px;
-  margin: 1ex;
-  aspect-ratio: 1;
+  margin: 0.5ex;
+  padding-bottom: 0.5ex;
+  background: var(--bs-body-color);
+  opacity: 0.25;
   border: none;
-  border-radius: 50%;
 }
 .tns-nav .tns-nav-active {
-  background: black;
+  opacity: 1;
 }
 
-@media (max-width: 768px) {
+@media (pointer: coarse) {
   .tns-controls {
-    display: none !important;
+    display: none;
   }
+}
+
+.tns-item .dummy {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+.tns-item:nth-child(n + 1) .dummy {
+  background: hsl(110, 60%, 60%);
+}
+.tns-item:nth-child(2n + 1) .dummy {
+  background: hsl(31, 81%, 46%);
+}
+.tns-item:nth-child(3n + 1) .dummy {
+  background: hsl(227, 78%, 45%);
 }
 </style>
