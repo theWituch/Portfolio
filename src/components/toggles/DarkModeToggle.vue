@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggleTheme" class="color-mode">
+  <button @click="toggleTheme()" class="color-mode">
     <Transition name="fade-up">
       <span v-if="darkmode" class="icon material-icons-outlined"> dark_mode</span>
     </Transition>
@@ -12,6 +12,8 @@
 
 <script>
 import useTheme from "@/composables/useTheme";
+
+import "material-icons/iconfont/outlined.css";
 
 export default {
   props: ["placeholder"],
@@ -29,7 +31,7 @@ export default {
   padding: 0;
   background: none;
   border: none;
-  color: var(--bs-body-color--accent);
+  color: var(--th-body-color-accent);
   font-weight: bold;
   transition: color 0.3s ease;
 }

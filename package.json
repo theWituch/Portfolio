@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -11,6 +11,8 @@
     "@iconscout/unicons": "^4.0.1",
     "bootstrap": "^5.2.0",
     "core-js": "^3.8.3",
+    "material-icons": "^1.11.10",
+    "tiny-slider": "^2.9.4",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },
