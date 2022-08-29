@@ -17,11 +17,13 @@ input[type="checkbox"] {
   visibility: hidden;
 }
 label {
+  color: white;
+  background: gray;
   cursor: pointer;
-  background: var(--th-whiteblue);
 }
 
 input:checked + label {
-  background: var(--bs-yellow);
+  color: black;
+  background: green;
 }
 </style>

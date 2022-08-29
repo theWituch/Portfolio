@@ -242,6 +242,24 @@ export default {
   transform: translate(-50%, -46%);
 }
 
+.skillset-filter label {
+  padding: 0.2em;
+  border-radius: 1em;
+  color: var(--bs-body-color);
+  font-weight: bold;
+  transition: all 0.3s ease !important;
+}
+.skillset-filter input:checked + label {
+  color: var(--th-darkest);
+  background: var(--bs-yellow);
+}
+@media (hover: hover) {
+  .skillset-filter input + label:hover {
+    color: var(--bs-light) !important;
+    background: var(--th-bluegray) !important;
+  }
+}
+
 .grid {
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 3px;
