@@ -91,17 +91,24 @@
         Many years of activities and development on many levels allowed me to master few programming languages,
         frameworks and tools. Below is a list of the most significant parts of my skill set.
       </p>
-      <TileGrid :items="skillset" v-slot="slotProp" class="grid mb-3">
-        <div class="tile p-0">
-          <a
-            :href="slotProp.tile.url"
-            class="d-flex align-items-center p-2 p-lg-3 w-100 h-100"
-            :alt="slotProp.tile.name"
-          >
-            <img :src="slotProp.tile.image" :alt="slotProp.tile.name" class="m-auto ah-75 aw-75" />
-          </a>
-        </div>
-      </TileGrid>
+
+      <div class="my-2 mb-3">
+        <CheckBoxPanel :id="'categoryFilter'" :options="skillsetCategories" v-model="activeSkillsetCategories" />
+        <span>Active skillset categories: {{ activeSkillsetCategories }}</span>
+
+        <TileGrid :items="filteredSkills" v-slot="slotProp" class="grid">
+          <div class="tile p-0">
+            <a
+              :href="slotProp.tile.url"
+              class="d-flex align-items-center p-2 p-lg-3 w-100 h-100"
+              :alt="slotProp.tile.name"
+            >
+              <img :src="slotProp.tile.image" :alt="slotProp.tile.name" class="m-auto ah-75 aw-75" />
+            </a>
+          </div>
+        </TileGrid>
+      </div>
+
       <p>
         If You have an order and are looking for a contractor, or You have a problem to solve (especially which no one
         else can solve) in case the scope matches my list - then
@@ -155,19 +162,38 @@ import TextAnimator from "@/components/TextAnimator.vue";
 import ContactForm from "@/components/ContactForm.vue";
 import TileGrid from "@/components/TileGrid.vue";
 import TinySlider from "@/components/TinySlider.vue";
+import CheckBoxPanel from "@/components/CheckBoxPanel.vue";
 
 import SkillsetRepository from "@/repositories/SkillsetRepository";
 import ProjectsRepository from "@/repositories/ProjectsRepository";
+import { ref } from "@vue/reactivity";
+import { computed } from "@vue/runtime-core";
 
 import "@iconscout/unicons/css/line.css";
 
 export default {
-  components: { TextAnimator, ContactForm, TileGrid, TinySlider },
+  components: { TextAnimator, ContactForm, TileGrid, TinySlider, CheckBoxPanel },
   setup() {
     const skillset = SkillsetRepository.getAll();
     const projects = ProjectsRepository.getAll();
 
-    return { skillset, projects };
+    const skillsetCategories = skillset
+      .map((project) => [...project.category])
+      .reduce((acc, category) => {
+        let newCategories = category.filter((cat) => !acc.includes(cat));
+        return acc.concat(newCategories);
+      })
+      .sort();
+
+    const activeSkillsetCategories = ref([]);
+
+    const filteredSkills = computed(() => {
+      return skillset.filter((skill) => {
+        return skill.category?.some((cat) => activeSkillsetCategories.value.includes(cat));
+      });
+    });
+
+    return { skillset, projects, skillsetCategories, activeSkillsetCategories, filteredSkills };
   },
 };
 </script>
