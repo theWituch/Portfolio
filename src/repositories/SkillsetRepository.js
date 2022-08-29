@@ -104,51 +104,51 @@ const skillset = {
     name: "Eclipse IDE",
     url: "https://www.eclipse.org/",
     image: require("@/assets/images/icons/eclipse.svg"),
-    category: ["tool"],
+    category: ["tool", "ide"],
   },
   intellij: {
     name: "IntelliJ IDEA",
     url: "https://www.jetbrains.com/idea/",
     image: require("@/assets/images/icons/intellij_idea.svg"),
-    category: ["tool"],
+    category: ["tool", "ide"],
   },
   vscode: {
     name: "Visial Studio Code",
     url: "https://code.visualstudio.com/",
     image: require("@/assets/images/icons/vscode.svg"),
-    category: ["tool"],
+    category: ["tool", "ide"],
   },
 
   arduino: {
     name: "Arduino",
     url: "https://www.arduino.cc/",
     image: require("@/assets/images/icons/arduino.svg"),
-    category: ["tool"],
+    category: ["tool", "ide", "electronics"],
   },
   mplabx: {
     name: "MPLAB X IDE",
     url: "https://www.microchip.com/mplab/",
     image: require("@/assets/images/icons/mplabx.png"),
-    category: ["tool"],
+    category: ["tool", "ide", "electronics"],
   },
 
   fusion360: {
     name: "Fusion360",
     url: "https://www.autodesk.pl/products/fusion-360/",
     image: require("@/assets/images/icons/fusion360.png"),
-    category: ["tool"],
+    category: ["tool", "cax"],
   },
   eagle: {
     name: "Eagle",
     url: "https://eagle.autodesk.com/eagle",
     image: require("@/assets/images/icons/eagle.png"),
-    category: ["tool"],
+    category: ["tool", "electronics"],
   },
   eplanelectric: {
     name: "EPLAN Electric",
     url: "https://www.eplan.com/",
     image: require("@/assets/images/icons/eplan.png"),
-    category: ["tool"],
+    category: ["tool", "electric"],
   },
 };
 
