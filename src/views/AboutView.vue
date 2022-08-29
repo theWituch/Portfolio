@@ -93,8 +93,12 @@
       </p>
 
       <div class="my-2 mb-3">
-        <CheckBoxPanel :id="'categoryFilter'" :options="skillsetCategories" v-model="activeSkillsetCategories" />
-        <span>Active skillset categories: {{ activeSkillsetCategories }}</span>
+        <CheckBoxPanel
+          :id="'categoryFilter2'"
+          :options="skillsetCategories"
+          v-model="activeSkillsetCategories"
+          class="my-3 mt-lg-4 skillset-filter"
+        />
 
         <TileGrid :items="filteredSkills" v-slot="slotProp" class="grid">
           <div class="tile p-0">
@@ -107,6 +111,10 @@
             </a>
           </div>
         </TileGrid>
+
+        <span>Active skillset categories: {{ activeSkillsetCategories }}</span>
+        <CheckBoxPanel :id="'categoryFilter'" :options="skillsetCategories" v-model="activeSkillsetCategoriesTest" />
+        <span>Active skillset categories: {{ activeSkillsetCategoriesTest }}</span>
       </div>
 
       <p>
@@ -186,6 +194,7 @@ export default {
       .sort();
 
     const activeSkillsetCategories = ref([]);
+    const activeSkillsetCategoriesTest = ref([]);
 
     const filteredSkills = computed(() => {
       return skillset.filter((skill) => {
@@ -193,7 +202,14 @@ export default {
       });
     });
 
-    return { skillset, projects, skillsetCategories, activeSkillsetCategories, filteredSkills };
+    return {
+      skillset,
+      projects,
+      skillsetCategories,
+      activeSkillsetCategories,
+      filteredSkills,
+      activeSkillsetCategoriesTest,
+    };
   },
 };
 </script>
