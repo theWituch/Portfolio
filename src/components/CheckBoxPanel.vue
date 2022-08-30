@@ -1,5 +1,5 @@
 <template>
-  <div class="cbp-wrapper">
+  <div class="d-flex flex-wrap">
     <div v-for="(option, index) in optionsBuffer" :key="index" class="checkbox">
       <slot :option="option">
         <BistableButton v-model="option.state" :label="option.name" />
@@ -40,12 +40,6 @@ export default {
 </script>
 
 <style>
-.cbp-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5pt;
-}
-
 .checkbox {
   flex: auto;
   text-align: center;
