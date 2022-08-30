@@ -5,7 +5,7 @@
         <button @click="setAllOptions(false)">Clear all</button>
       </div>
       <div class="b-wrapper col-6 col-md-auto">
-        <button @click="setAllOptions(true)">Set all</button>
+        <button @click="setAllOptions(true)">Select all</button>
       </div>
     </div>
 

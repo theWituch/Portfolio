@@ -93,7 +93,7 @@
       </p>
 
       <div class="my-2 mb-3">
-        <CheckBoxPanel
+        <OptionsPanel
           :id="'categoryFilter2'"
           :options="skillsetCategories"
           v-model="activeSkillsetCategories"
@@ -170,7 +170,7 @@ import TextAnimator from "@/components/TextAnimator.vue";
 import ContactForm from "@/components/ContactForm.vue";
 import TileGrid from "@/components/TileGrid.vue";
 import TinySlider from "@/components/TinySlider.vue";
-import CheckBoxPanel from "@/components/CheckBoxPanel.vue";
+import OptionsPanel from "@/components/OptionsPanel.vue";
 
 import SkillsetRepository from "@/repositories/SkillsetRepository";
 import ProjectsRepository from "@/repositories/ProjectsRepository";
@@ -180,7 +180,7 @@ import { computed } from "@vue/runtime-core";
 import "@iconscout/unicons/css/line.css";
 
 export default {
-  components: { TextAnimator, ContactForm, TileGrid, TinySlider, CheckBoxPanel },
+  components: { TextAnimator, ContactForm, TileGrid, TinySlider, OptionsPanel },
   setup() {
     const skillset = SkillsetRepository.getAll();
     const projects = ProjectsRepository.getAll();
