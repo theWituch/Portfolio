@@ -132,7 +132,12 @@
               rel="noreferrer"
               class="text-reset uil uil-github"
             ></a>
-            <a href="https://discordapp.com/users/226816245125742599" target="blank" rel="noreferrer" class="text-reset uil uil-discord"></a>
+            <a
+              href="https://discordapp.com/users/226816245125742599"
+              target="blank"
+              rel="noreferrer"
+              class="text-reset uil uil-discord"
+            ></a>
             <a href="#youtube" target="blank" rel="noreferrer" class="text-reset uil uil-youtube"></a>
           </div>
         </div>
