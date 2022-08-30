@@ -144,11 +144,30 @@ const skillset = {
     image: require("@/assets/images/icons/eagle.png"),
     category: ["tool", "electronics"],
   },
+
+  tiaportal: {
+    name: "TIA Portal",
+    url: "https://new.siemens.com/global/en/products/automation/industry-software/automation-software/tia-portal.html",
+    image: require("@/assets/images/icons/tia-portal.png"),
+    category: ["tool", "ide", "automotive"],
+  },
+  step7: {
+    name: "STEP7",
+    url: "https://new.siemens.com/global/en/products/automation/industry-software/automation-software/tia-portal/software/step7-tia-portal.html",
+    image: require("@/assets/images/icons/step7.jpg"),
+    category: ["tool", "ide", "automotive"],
+  },
   eplanelectric: {
     name: "EPLAN Electric",
     url: "https://www.eplan.com/",
     image: require("@/assets/images/icons/eplan.png"),
-    category: ["tool", "electric"],
+    category: ["tool", "automotive"],
+  },
+  profinet: {
+    name: "PROFINET",
+    url: "https://en.wikipedia.org/wiki/Profinet",
+    image: require("@/assets/images/icons/profinet.png"),
+    category: ["automotive"],
   },
 };
 
