@@ -11,7 +11,7 @@
 
     <div v-for="(option, index) in optionsBuffer" :key="index" class="b-wrapper">
       <slot :option="option">
-        <BistableButton v-model="option.state" :label="option.name" />
+        <BistableButton v-model="option.state" :label="option.name" @dblclick="setOnlyOneOption(option, true)" />
       </slot>
     </div>
   </div>
@@ -49,7 +49,14 @@ export default {
       });
     };
 
-    return { optionsBuffer, activeOptions, setAllOptions };
+    const setOnlyOneOption = (option, newState) => {
+      optionsBuffer.value = optionsBuffer.value.map((bufferedOption) => {
+        let resultState = bufferedOption.name === option.name ? newState : !newState;
+        return { ...bufferedOption, state: resultState };
+      });
+    };
+
+    return { optionsBuffer, activeOptions, setAllOptions, setOnlyOneOption };
   },
 };
 </script>
