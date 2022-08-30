@@ -111,10 +111,6 @@
             </a>
           </div>
         </TileGrid>
-
-        <span>Active skillset categories: {{ activeSkillsetCategories }}</span>
-        <CheckBoxPanel :id="'categoryFilter'" :options="skillsetCategories" v-model="activeSkillsetCategoriesTest" />
-        <span>Active skillset categories: {{ activeSkillsetCategoriesTest }}</span>
       </div>
 
       <p>
@@ -192,10 +188,7 @@ export default {
         return acc.concat(newCategories);
       })
       .sort();
-
     const activeSkillsetCategories = ref([]);
-    const activeSkillsetCategoriesTest = ref([]);
-
     const filteredSkills = computed(() => {
       return skillset.filter((skill) => {
         return skill.category?.some((cat) => activeSkillsetCategories.value.includes(cat));
@@ -208,7 +201,6 @@ export default {
       skillsetCategories,
       activeSkillsetCategories,
       filteredSkills,
-      activeSkillsetCategoriesTest,
     };
   },
 };
