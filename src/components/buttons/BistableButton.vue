@@ -6,15 +6,9 @@
 export default {
   props: ["modelValue", "label"],
   emits: ["update:modelValue"],
-  data() {
-    return {
-      state: this.modelValue,
-    };
-  },
   methods: {
     toggleState() {
-      this.state = !this.state;
-      this.$emit("update:modelValue", this.state);
+      this.$emit("update:modelValue", !this.modelValue);
     },
   },
 };
