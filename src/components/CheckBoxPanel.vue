@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import BistableButton from "./toggles/BistableButton.vue";
+import BistableButton from "./buttons/BistableButton.vue";
 
 import { ref } from "@vue/reactivity";
 import { computed, watchEffect } from "@vue/runtime-core";
