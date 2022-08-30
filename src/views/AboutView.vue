@@ -92,12 +92,12 @@
         frameworks and tools. Below is a list of the most significant parts of my skill set.
       </p>
 
-      <div class="my-2 mb-3">
+      <div class="mb-4 mt-1 mt-lg-4">
         <OptionsPanel
-          :id="'categoryFilter2'"
+          :id="'skillset-filter'"
           :options="skillsetCategories"
           v-model="activeSkillsetCategories"
-          class="my-3 mt-lg-4 skillset-filter"
+          class="mb-3 skillset-filter"
         />
 
         <TileGrid :items="filteredSkills" v-slot="slotProp" class="grid">
