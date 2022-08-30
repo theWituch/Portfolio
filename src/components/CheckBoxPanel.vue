@@ -2,7 +2,7 @@
   <div class="cbp-wrapper">
     <div v-for="(option, index) in optionsBuffer" :key="index" class="checkbox">
       <slot :option="option">
-        <BistableButton :id="id + '-checkbox-' + index" :option="option.name" v-model="option.state" />
+        <BistableButton v-model="option.state" :label="option.name" />
       </slot>
     </div>
   </div>

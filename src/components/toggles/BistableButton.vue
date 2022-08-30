@@ -1,29 +1,28 @@
 <template>
-  <input type="checkbox" :id="id" :checked="modelValue" @change="$emit('update:modelValue', $event.target.checked)" />
-  <label :for="id" class="w-100 px-2">{{ option }}</label>
+  <button @click="toggleState" :class="{ pressed: modelValue }">{{ label }}</button>
 </template>
 
 <script>
 export default {
-  props: ["modelValue", "id", "option"],
+  props: ["modelValue", "label"],
   emits: ["update:modelValue"],
+  data() {
+    return {
+      state: this.modelValue,
+    };
+  },
+  methods: {
+    toggleState() {
+      this.state = !this.state;
+      this.$emit("update:modelValue", this.state);
+    },
+  },
 };
 </script>
 
-<style scoped>
-input[type="checkbox"] {
-  height: 0;
-  width: 0;
-  visibility: hidden;
-}
-label {
+<style>
+button.pressed {
   color: white;
-  background: gray;
-  cursor: pointer;
-}
-
-input:checked + label {
-  color: black;
   background: green;
 }
 </style>
