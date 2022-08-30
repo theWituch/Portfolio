@@ -242,21 +242,28 @@ export default {
   transform: translate(-50%, -46%);
 }
 
-.skillset-filter label {
-  padding: 0.2em;
-  border-radius: 1em;
+.skillset-filter button {
+  width: 100%;
+  padding: 0.2em 1em;
+  border: none;
+  border-radius: 3em;
+  background: gray;
   color: var(--bs-body-color);
   font-weight: bold;
   transition: all 0.3s ease !important;
 }
-.skillset-filter input:checked + label {
+.skillset-filter button.pressed {
   color: var(--th-darkest);
   background: var(--bs-yellow);
 }
 @media (hover: hover) {
-  .skillset-filter input + label:hover {
+  .skillset-filter button:hover {
     color: var(--bs-light) !important;
     background: var(--th-bluegray) !important;
+  }
+  .skillset-filter .controls button:hover {
+    color: var(--th-darkest) !important;
+    background: var(--bs-orange) !important;
   }
 }
 
