@@ -247,10 +247,20 @@ export default {
   padding: 0.2em 1em;
   border: none;
   border-radius: 3em;
-  background: gray;
   color: var(--bs-body-color);
+  background: var(--th-whiteblue);
   font-weight: bold;
   transition: all 0.3s ease !important;
+}
+.skillset-filter .controls button {
+  background: var(--th-bluegray);
+  color: var(--bs-light);
+}
+.dark-theme .skillset-filter .controls button {
+  background: var(--bs-gray-600);
+}
+.dark-theme .skillset-filter button {
+  background: var(--th-bluegray);
 }
 .skillset-filter button.pressed {
   color: var(--th-darkest);
@@ -258,12 +268,12 @@ export default {
 }
 @media (hover: hover) {
   .skillset-filter button:hover {
-    color: var(--bs-light) !important;
-    background: var(--th-bluegray) !important;
+    color: var(--bs-light);
+    background: var(--th-bluegray);
   }
   .skillset-filter .controls button:hover {
-    color: var(--th-darkest) !important;
-    background: var(--bs-orange) !important;
+    color: var(--th-darkest);
+    background: var(--bs-yellow);
   }
 }
 
