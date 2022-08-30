@@ -1,6 +1,15 @@
 <template>
   <div class="d-flex flex-wrap">
-    <div v-for="(option, index) in optionsBuffer" :key="index" class="checkbox">
+    <div class="controls d-flex col-12 col-md-auto">
+      <div class="b-wrapper col-6 col-md-auto">
+        <button @click="setAllOptions(false)">Clear all</button>
+      </div>
+      <div class="b-wrapper col-6 col-md-auto">
+        <button @click="setAllOptions(true)">Set all</button>
+      </div>
+    </div>
+
+    <div v-for="(option, index) in optionsBuffer" :key="index" class="b-wrapper">
       <slot :option="option">
         <BistableButton v-model="option.state" :label="option.name" />
       </slot>
@@ -34,14 +43,21 @@ export default {
       context.emit("update:modelValue", activeOptions.value);
     });
 
-    return { optionsBuffer, activeOptions };
+    const setAllOptions = (newState) => {
+      optionsBuffer.value = optionsBuffer.value.map((bufferedOption) => {
+        return { ...bufferedOption, state: newState };
+      });
+    };
+
+    return { optionsBuffer, activeOptions, setAllOptions };
   },
 };
 </script>
 
 <style>
-.checkbox {
+.b-wrapper {
   flex: auto;
   text-align: center;
+  padding: 2pt;
 }
 </style>
