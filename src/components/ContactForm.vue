@@ -54,12 +54,15 @@ export default {};
 .submit-btn {
   background: var(--bs-yellow) !important;
   border-radius: 30px !important;
-  color: var(--bs-light) !important;
+  color: var(--th-darkest) !important;
   font-weight: bold !important;
   border: none !important;
   transition: all 0.4s ease !important;
 }
-.submit-btn:hover {
-  background: var(--th-bluegray) !important;
+@media (hover: hover) {
+  .submit-btn:hover {
+    color: var(--bs-light) !important;
+    background: var(--th-bluegray) !important;
+  }
 }
 </style>

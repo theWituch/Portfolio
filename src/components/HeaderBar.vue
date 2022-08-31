@@ -1,6 +1,6 @@
 <template>
   <transition name="header">
-    <nav v-show="showHeader" class="navbar navbar-expand-lg" :class="{ scrolled }">
+    <nav v-show="showHeader" class="navbar navbar-expand-lg" :class="{ scrolled: (scrolled || !collapsed) }">
       <div class="container py-1">
         <a class="navbar-brand col-lg-3" href="#">
           <img
@@ -138,7 +138,7 @@ export default {
 /* 
  *  Responsive 
  */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .toggler-icon {
     transition: transform 0.4s ease;
   }
