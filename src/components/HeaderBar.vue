@@ -138,7 +138,7 @@ export default {
 /* 
  *  Responsive 
  */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .toggler-icon {
     transition: transform 0.4s ease;
   }
