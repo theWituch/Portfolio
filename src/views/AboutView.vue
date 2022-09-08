@@ -27,7 +27,7 @@
       <div class="m-auto p-4 p-lg-0 col-12 col-lg-3">
         <div class="avatar round">
           <img
-            src="https://scontent.fpoz2-1.fna.fbcdn.net/v/t1.6435-9/31159640_1581873875244089_5557646170165084160_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Ifml9Rq8rusAX_Zm2tY&_nc_ht=scontent.fpoz2-1.fna&oh=00_AT_PX1e0c93cjDITF8fJWdVIvGUrTGzurQ_7Wp_XWexJ6g&oe=631848F9"
+            :src="require('@/assets/images/avatar.jpg')"
           />
         </div>
       </div>
