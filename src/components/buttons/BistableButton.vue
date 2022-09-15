@@ -1,9 +1,10 @@
 <template>
-  <button @click="toggleState" :class="{ pressed: modelValue }">{{ label }}</button>
+  <button v-bem="{ ['is-pressed']: modelValue}" @click="toggleState">{{ label }}</button>
 </template>
 
 <script>
 export default {
+  name: "bistable-button",
   props: ["modelValue", "label"],
   emits: ["update:modelValue"],
   methods: {
@@ -14,9 +15,12 @@ export default {
 };
 </script>
 
-<style>
-button.pressed {
-  color: white;
-  background: green;
+<style lang="scss">
+.bistable-button {
+  color: black;
+  &--is-pressed {
+    color: white;
+    background: green;
+  }
 }
 </style>
