@@ -206,7 +206,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .welcome {
   color: var(--th-body-color-accent);
 }
@@ -234,38 +234,64 @@ export default {
   transform: translate(-50%, -46%);
 }
 
-.skillset-filter button {
-  width: 100%;
-  padding: 0.2em 1em;
-  border: none;
-  border-radius: 3em;
-  color: var(--bs-body-color);
-  background: var(--th-whiteblue);
-  font-weight: bold;
-  transition: all 0.3s ease !important;
-}
-.skillset-filter .controls button {
-  background: var(--th-bluegray);
-  color: var(--bs-light);
-}
-.dark-theme .skillset-filter .controls button {
-  background: var(--bs-gray-600);
-}
-.dark-theme .skillset-filter button {
-  background: var(--th-bluegray);
-}
-.skillset-filter button.pressed {
-  color: var(--th-darkest);
-  background: var(--bs-yellow);
-}
-@media (hover: hover) {
-  .skillset-filter button:hover {
-    color: var(--bs-light);
-    background: var(--th-bluegray);
+.skillset-filter .options-panel,
+.skillset-filter.options-panel {
+  &__controls-button,
+  .bistable-button {
+    width: 100%;
+    padding: 0.2em 1em;
+    border: none;
+    border-radius: 3em;
+    font-weight: bold;
+    transition: all 0.3s ease;
   }
-  .skillset-filter .controls button:hover {
-    color: var(--th-darkest);
-    background: var(--bs-yellow);
+
+  &__controls-button {
+    background: var(--th-bluegray);
+    color: var(--bs-light);
+  }
+
+  .bistable-button {
+    color: var(--bs-body-color);
+    background: var(--th-whiteblue);
+
+    &--is-pressed {
+      color: var(--th-darkest);
+      background: var(--bs-yellow);
+    }
+  }
+}
+
+.dark-theme {
+  .skillset-filter .options-panel,
+  .skillset-filter.options-panel {
+    &__controls-button {
+      background: var(--bs-gray-600);
+    }
+
+    .bistable-button {
+      background: var(--th-bluegray);
+
+      &--is-pressed {
+        color: var(--th-darkest);
+        background: var(--bs-yellow);
+      }
+    }
+  }
+}
+
+@media (hover: hover) {
+  .skillset-filter .options-panel,
+  .skillset-filter.options-panel {
+    &__controls-button:hover {
+      color: var(--th-darkest);
+      background: var(--bs-yellow);
+    }
+
+    .bistable-button:hover {
+      color: var(--bs-light);
+      background: var(--th-bluegray);
+    }
   }
 }
 
