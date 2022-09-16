@@ -92,16 +92,16 @@
         frameworks and tools. Below is a list of the most significant parts of my skill set.
       </p>
 
-      <div class="mb-4 mt-1 mt-lg-4">
+      <div class="mb-4 mt-1 mt-lg-4 skillset-grid">
         <OptionsPanel
           :id="'skillset-filter'"
           :options="skillsetCategories"
           v-model="activeSkillsetCategories"
-          class="mb-3 skillset-filter"
+          class="mb-3 skillset-grid__options"
         />
 
         <TileGrid :items="filteredSkills" v-slot="slotProp" class="grid">
-          <div class="tile p-0">
+          <div class="p-0 tile">
             <a
               :href="slotProp.tile.url"
               class="d-flex align-items-center p-2 p-lg-3 w-100 h-100"
@@ -234,66 +234,63 @@ export default {
   transform: translate(-50%, -46%);
 }
 
-.skillset-filter .options-panel,
-.skillset-filter.options-panel {
-  &__controls-button,
-  .bistable-button {
-    width: 100%;
-    padding: 0.2em 1em;
-    border: none;
-    border-radius: 3em;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
 
-  &__controls-button {
-    background: var(--th-bluegray);
-    color: var(--bs-light);
-  }
-
-  .bistable-button {
-    color: var(--bs-body-color);
-    background: var(--th-whiteblue);
-
-    &--is-pressed {
-      color: var(--th-darkest);
-      background: var(--bs-yellow);
+.skillset-grid {
+  .options-panel {
+    &__controls-button,
+    .bistable-button {
+      width: 100%;
+      padding: 0.2em 1em;
+      border: none;
+      border-radius: 3em;
+      font-weight: bold;
+      transition: all 0.3s ease;
     }
-  }
-}
 
-.dark-theme {
-  .skillset-filter .options-panel,
-  .skillset-filter.options-panel {
     &__controls-button {
-      background: var(--bs-gray-600);
+      background: var(--th-bluegray);
+      color: var(--bs-light);
+
+      @at-root .dark-theme #{&} {
+        background: var(--bs-gray-600);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--th-darkest);
+          background: var(--bs-yellow);
+        }
+      }
     }
 
     .bistable-button {
-      background: var(--th-bluegray);
+      color: var(--bs-body-color);
+      background: var(--th-whiteblue);
+
+      @at-root .dark-theme #{&} {
+        background: var(--th-bluegray);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--bs-light);
+          background: var(--th-bluegray);
+        }
+      }
 
       &--is-pressed {
         color: var(--th-darkest);
         background: var(--bs-yellow);
+
+        @at-root .dark-theme #{&} {
+          color: var(--th-darkest);
+          background: var(--bs-yellow);
+        }
       }
     }
   }
 }
 
-@media (hover: hover) {
-  .skillset-filter .options-panel,
-  .skillset-filter.options-panel {
-    &__controls-button:hover {
-      color: var(--th-darkest);
-      background: var(--bs-yellow);
-    }
-
-    .bistable-button:hover {
-      color: var(--bs-light);
-      background: var(--th-bluegray);
-    }
-  }
-}
 
 .grid {
   grid-template-columns: repeat(5, 1fr);
