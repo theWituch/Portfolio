@@ -1,0 +1,9 @@
+// Utilities
+
+$utilities: (
+  "debug-border": (
+    property: border,
+    class: DEBUG,
+    values: $debug-borders,
+  ),
+);

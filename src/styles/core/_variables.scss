@@ -1,0 +1,14 @@
+// Variables
+
+$debug-borders: (
+  null: to-debug-border($red),
+  0: to-debug-border($green),
+  1: to-debug-border($orange),
+  2: to-debug-border($blue),
+  3: to-debug-border($pink),
+  4: to-debug-border($cyan),
+  5: to-debug-border($indigo),
+  6: to-debug-border($teal),
+  7: to-debug-border($yellow),
+  8: to-debug-border($purple),
+);

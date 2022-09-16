@@ -1,0 +1,20 @@
+// Functions
+
+// Convert list to map
+// Map keys starts from zero and consist of consecutive numbers
+@function list-as-map($list) {
+  $_map: ();
+
+  @each $value in $list {
+    $key: index($list, $value) - 1;  // TODO: Add key generator callback function
+    $_map: map-merge($_map, ($key: $value));
+  }
+
+  @return $_map;
+}
+
+// Debug border
+// Create simple 1px coloured border for easier container debugging
+@function to-debug-border($value) {
+  @return 1px solid $value;
+}

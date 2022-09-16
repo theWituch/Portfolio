@@ -367,7 +367,7 @@ export default {
 .dark-theme .tns-item img {
   filter: contrast(0.85) drop-shadow(0 2pt 2pt rgb(175, 175, 175));
 }
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .tns-item .slide {
     width: 80%;
   }

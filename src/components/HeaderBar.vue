@@ -84,7 +84,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .navbar {
   position: fixed;
   margin: 0 auto;
@@ -138,7 +138,7 @@ export default {
 /* 
  *  Responsive 
  */
-@media (max-width: 992px) {
+@include media-breakpoint-down(lg) {
   .toggler-icon {
     transition: transform 0.4s ease;
   }
