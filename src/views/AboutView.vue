@@ -100,14 +100,18 @@
           class="mb-3 skillset-grid__options"
         />
 
-        <TileGrid :items="filteredSkills" v-slot="slotProp" class="grid">
-          <div class="p-0 tile">
+        <TileGrid :items="filteredSkills" v-slot="slotProp" class="skillset-grid__grid">
+          <div class="p-0 tile-grid__tile">
             <a
               :href="slotProp.tile.url"
               class="d-flex align-items-center p-2 p-lg-3 w-100 h-100"
               :alt="slotProp.tile.name"
             >
-              <img :src="slotProp.tile.image" :alt="slotProp.tile.name" class="m-auto ah-75 aw-75" />
+              <img
+                :src="slotProp.tile.image"
+                :alt="slotProp.tile.name"
+                class="m-auto ah-75 aw-75 tile-grid__tile-image"
+              />
             </a>
           </div>
         </TileGrid>
@@ -234,11 +238,9 @@ export default {
   transform: translate(-50%, -46%);
 }
 
-
 .skillset-grid {
   .options-panel {
-    &__controls-button,
-    .bistable-button {
+    @mixin panel-button {
       width: 100%;
       padding: 0.2em 1em;
       border: none;
@@ -248,6 +250,7 @@ export default {
     }
 
     &__controls-button {
+      @include panel-button;
       background: var(--th-bluegray);
       color: var(--bs-light);
 
@@ -264,6 +267,7 @@ export default {
     }
 
     .bistable-button {
+      @include panel-button;
       color: var(--bs-body-color);
       background: var(--th-whiteblue);
 
@@ -289,62 +293,60 @@ export default {
       }
     }
   }
-}
 
+  .tile-grid {
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 3px;
 
-.grid {
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 3px;
-}
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-@media (min-width: 992px) {
-  .grid {
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 4px;
-  }
-}
-@media (min-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(8, 1fr);
-  }
-}
-@media (min-width: 1400px) {
-  .grid {
-    grid-template-columns: repeat(9, 1fr);
-    grid-gap: 5px;
-  }
-}
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: repeat(7, 1fr);
+      grid-gap: 4px;
+    }
+    @include media-breakpoint-up(xl) {
+      grid-template-columns: repeat(8, 1fr);
+    }
+    @include media-breakpoint-up(xxl) {
+      grid-template-columns: repeat(9, 1fr);
+      grid-gap: 5px;
+    }
 
-.tile {
-  width: 100%;
-  aspect-ratio: 1.5;
-  background-color: rgba(var(--th-body-color-rgb), 0.1);
-}
-.tile:hover {
-  background-color: var(--bs-light);
-}
-.tile img {
-  max-width: 100%;
-  max-height: 100%;
-  transition: all 0.2s ease;
-}
-.dark-theme .tile img {
-  filter: grayscale(1) invert(0.2);
-}
-.tile:hover img {
-  filter: none;
-  transform: scale(1.25);
-}
-@media (hover: none) {
-  .dark-theme .tile {
-    background-color: var(--th-whiteblue);
-  }
-  .tile img {
-    filter: none !important;
+    &__tile {
+      width: 100%;
+      aspect-ratio: 1.5;
+      background-color: rgba(var(--th-body-color-rgb), 0.1);
+
+      &:hover {
+        background-color: var(--bs-light);
+
+        img {
+          filter: none;
+          transform: scale(1.25);
+        }
+      }
+
+      @media (hover: none) {
+        @at-root .dark-theme #{&} {
+          background-color: var(--th-whiteblue);
+        }
+
+        img {
+          filter: none !important;
+        }
+      }
+    }
+
+    &__tile-image {
+      max-width: 100%;
+      max-height: 100%;
+      transition: all 0.2s ease;
+
+      @at-root .dark-theme #{&} {
+        filter: grayscale(1) invert(0.2);
+      }
+    }
   }
 }
 
