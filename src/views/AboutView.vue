@@ -24,11 +24,9 @@
           with passion and hobby drives everything I do.
         </p>
       </div>
-      <div class="m-auto p-4 p-lg-0 col-12 col-lg-3">
-        <div class="avatar round">
-          <img
-            :src="require('@/assets/images/avatar.jpg')"
-          />
+      <div class="m-auto p-4 p-lg-0 col-12 col-lg-3 avatar">
+        <div class="avatar__wrapper">
+          <img :src="require('@/assets/images/avatar.jpg')" class="avatar__image" />
         </div>
       </div>
     </section>
@@ -220,22 +218,26 @@ export default {
 }
 
 .avatar {
-  aspect-ratio: 1;
-  overflow: hidden;
-  position: relative;
-}
-.avatar > img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  transition: 0.3s ease;
-}
-.avatar > img:hover {
-  height: 110%;
-  transform: translate(-50%, -46%);
+  &__wrapper {
+    @include rounded-box;
+    aspect-ratio: 1;
+    overflow: hidden;
+    position: relative;
+  }
+  &__image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s ease;
+
+    &:hover {
+      height: 110%;
+      transform: translate(-50%, -46%);
+    }
+  }
 }
 
 .skillset-grid {

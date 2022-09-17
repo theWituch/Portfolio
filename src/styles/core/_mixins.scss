@@ -1,1 +1,5 @@
 // Mixins
+
+@mixin rounded-box {
+  border-radius: 50%;
+}
