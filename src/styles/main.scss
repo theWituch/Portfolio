@@ -1,7 +1,7 @@
 // Include styles core (functions, variables and mixins)
 @import "core";
 
-// Include other needed parts of Bootstrap
+// Include other modules and libraries etc.
 @import "node_modules/bootstrap/scss/root";
 @import "node_modules/bootstrap/scss/reboot";
 @import "node_modules/bootstrap/scss/containers";
@@ -12,10 +12,16 @@
 @import "node_modules/bootstrap/scss/buttons";
 @import "node_modules/bootstrap/scss/images";
 
+@import "node_modules/material-icons/iconfont/filled";
+@import "node_modules/material-icons/iconfont/outlined";
+@import "node_modules/material-icons/iconfont/round";
+
+@import "@iconscout/unicons/css/line.css";
+
 // Include generated utilities
 @import "utilities";
 
-// Include tweaks for used libraries, browsers etc.
+// Include tweaks for used modules, libraries, browsers etc.
 @import "tweaks";
 
 // Include color themes

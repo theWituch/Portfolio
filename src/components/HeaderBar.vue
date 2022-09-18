@@ -46,8 +46,6 @@ import { computed, watch } from "@vue/runtime-core";
 
 import DarkModeToggle from "./toggles/DarkModeToggle.vue";
 
-import "material-icons/iconfont/filled.css"
-
 export default {
   components: { DarkModeToggle },
   setup() {

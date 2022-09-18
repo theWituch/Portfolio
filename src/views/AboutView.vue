@@ -175,8 +175,6 @@ import ProjectsRepository from "@/repositories/ProjectsRepository";
 import { ref } from "@vue/reactivity";
 import { computed } from "@vue/runtime-core";
 
-import "@iconscout/unicons/css/line.css";
-
 export default {
   components: { TextAnimator, ContactForm, TileGrid, TinySlider, OptionsPanel },
   setup() {

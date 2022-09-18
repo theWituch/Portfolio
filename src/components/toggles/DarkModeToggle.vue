@@ -13,8 +13,6 @@
 <script>
 import useTheme from "@/composables/useTheme";
 
-import "material-icons/iconfont/outlined.css";
-
 export default {
   props: ["placeholder"],
   setup() {

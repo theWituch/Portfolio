@@ -47,7 +47,6 @@ import { tns } from "tiny-slider";
 import { onMounted, onUpdated } from "@vue/runtime-core";
 
 import "tiny-slider/dist/tiny-slider.css";
-import "material-icons/iconfont/round.css";
 
 export default {
   props: {
