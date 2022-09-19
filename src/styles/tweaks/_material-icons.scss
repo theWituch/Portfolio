@@ -1,0 +1,11 @@
+// Material Icons
+
+@each $type in $material-icons-types {
+  .material-icons {
+    &-#{$type} {
+      color: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+    }
+  }
+}

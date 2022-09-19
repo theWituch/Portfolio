@@ -1,8 +1,8 @@
 <template>
-  <div class="container content">
-    <section id="welcome" class="my-4 py-2 row">
+  <div v-bem class="container content">
+    <section v-bem:welcome-section id="welcome" class="my-4 py-2 row">
       <div class="my-auto col-12 col-lg-8">
-        <p class="welcome m-0 px-3 fs-6 fw-bold">Welcome to my portfolio website!</p>
+        <p class="m-0 fs-6 fw-bold greeting-message">Welcome to my portfolio website!</p>
         <h1 class="my-4 d-flex flex-column d-lg-block">
           <span class="me-3">Hey folks, I'm</span>
           <TextAnimator
@@ -16,7 +16,7 @@
               'Electrician.',
             ]"
             :mode="'typewriting'"
-            class="animated-item"
+            class="animated-text"
           />
         </h1>
         <p>
@@ -24,16 +24,14 @@
           with passion and hobby drives everything I do.
         </p>
       </div>
-      <div class="m-auto p-4 p-lg-0 col-12 col-lg-3">
-        <div class="avatar round">
-          <img
-            :src="require('@/assets/images/avatar.jpg')"
-          />
+      <div class="m-auto p-4 p-lg-0 col-12 col-lg-3 avatar">
+        <div class="avatar__wrapper">
+          <img :src="require('@/assets/images/avatar.jpg')" class="avatar__image" />
         </div>
       </div>
     </section>
 
-    <section id="aboutme" class="my-4 py-2 row">
+    <section v-bem:aboutme-section id="aboutme" class="my-4 py-2 row">
       <h2>About me</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia voluptatibus recusandae inventore
@@ -49,7 +47,7 @@
       </p>
     </section>
 
-    <section id="projects" class="my-4 py-2 row">
+    <section v-bem:projects-section id="projects" class="my-4 py-2 row">
       <h2>My projects</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia voluptatibus recusandae inventore
@@ -60,23 +58,23 @@
       <TinySlider :id="'tns-projects'" :data="projects" :items="1" :preventScrollOnTouch="'force'" class="my-1">
         <template #slide="{ item }">
           <div>
-            <div class="slide">
-              <img :src="item.image" class="d-block w-100" :alt="item.name" />
+            <div class="tiny-slider__slide">
+              <img :src="item.image" class="d-block w-100 tiny-slider__slide-image" :alt="item.name" />
             </div>
           </div>
         </template>
 
         <template #controls-prev>
-          <div>
-            <button>
+          <div class="tiny-slider__controls-wrapper">
+            <button class="tiny-slider__controls-button">
               <span class="material-icons-round">arrow_back</span>
               <span class="d-none">Previous</span>
             </button>
           </div>
         </template>
         <template #controls-next>
-          <div>
-            <button>
+          <div class="tiny-slider__controls-wrapper">
+            <button class="tiny-slider__controls-button">
               <span class="material-icons-round">arrow_forward</span>
               <span class="d-none">Previous</span>
             </button>
@@ -85,29 +83,33 @@
       </TinySlider>
     </section>
 
-    <section id="skills" class="my-4 py-2 row">
+    <section v-bem:skills-section id="skills" class="my-4 py-2 row">
       <h2>My skill set, tools and technologies that I use</h2>
       <p>
         Many years of activities and development on many levels allowed me to master few programming languages,
         frameworks and tools. Below is a list of the most significant parts of my skill set.
       </p>
 
-      <div class="mb-4 mt-1 mt-lg-4">
+      <div class="mb-4 mt-1 mt-lg-4 skillset-grid">
         <OptionsPanel
           :id="'skillset-filter'"
           :options="skillsetCategories"
           v-model="activeSkillsetCategories"
-          class="mb-3 skillset-filter"
+          class="mb-3 skillset-grid__options"
         />
 
-        <TileGrid :items="filteredSkills" v-slot="slotProp" class="grid">
-          <div class="tile p-0">
+        <TileGrid :items="filteredSkills" v-slot="slotProp" class="skillset-grid__grid">
+          <div class="p-0 tile-grid__tile">
             <a
               :href="slotProp.tile.url"
               class="d-flex align-items-center p-2 p-lg-3 w-100 h-100"
               :alt="slotProp.tile.name"
             >
-              <img :src="slotProp.tile.image" :alt="slotProp.tile.name" class="m-auto ah-75 aw-75" />
+              <img
+                :src="slotProp.tile.image"
+                :alt="slotProp.tile.name"
+                class="m-auto ah-75 aw-75 tile-grid__tile-image"
+              />
             </a>
           </div>
         </TileGrid>
@@ -121,10 +123,10 @@
       </p>
     </section>
 
-    <section id="contact" class="my-4 my-lg-5 py-2 row">
+    <section v-bem:contact-section id="contact" class="my-4 my-lg-5 py-2 row">
       <div class="my-4 my-lg-0 px-3 px-lg-5 py-xl-3 col-lg-6 col-12">
         <img src="@/assets/images/undraw/undraw_envelope.svg" class="img-fluid px-5" alt="Envelope contact image" />
-        <div class="contact-info d-flex justify-content-between align-items-center text-white py-3 px-4 px-lg-5">
+        <div class="d-flex justify-content-between align-items-center text-white py-3 px-4 px-lg-5 contact-info">
           <div class="d-flex flex-column">
             <h3 class="mb-3 text-reset">Mateusz Frydrych</h3>
             <span class="mb-0 text-reset uil uil-phone">&nbsp;+48 726 140 859</span>
@@ -173,9 +175,8 @@ import ProjectsRepository from "@/repositories/ProjectsRepository";
 import { ref } from "@vue/reactivity";
 import { computed } from "@vue/runtime-core";
 
-import "@iconscout/unicons/css/line.css";
-
 export default {
+  name: "about-view",
   components: { TextAnimator, ContactForm, TileGrid, TinySlider, OptionsPanel },
   setup() {
     const skillset = SkillsetRepository.getAll();
@@ -206,167 +207,214 @@ export default {
 };
 </script>
 
-<style>
-.welcome {
-  color: var(--th-body-color-accent);
-}
+<style lang="scss">
+.about-view {
+  &__welcome-section {
+    .greeting-message {
+      color: var(--th-body-color-accent);
+    }
+    .animated-text {
+      color: var(--bs-yellow);
+    }
+    .avatar {
+      &__wrapper {
+        @include rounded-box;
+        aspect-ratio: 1;
+        overflow: hidden;
+        position: relative;
+      }
+      &__image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        transition: 0.3s ease;
 
-.animated-item {
-  color: var(--bs-yellow);
-}
+        &:hover {
+          height: 110%;
+          transform: translate(-50%, -46%);
+        }
+      }
+    }
+  }
 
-.avatar {
-  aspect-ratio: 1;
-  overflow: hidden;
-  position: relative;
-}
-.avatar > img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  transition: 0.3s ease;
-}
-.avatar > img:hover {
-  height: 110%;
-  transform: translate(-50%, -46%);
-}
+  &__aboutme-section {
+  }
 
-.skillset-filter button {
-  width: 100%;
-  padding: 0.2em 1em;
-  border: none;
-  border-radius: 3em;
-  color: var(--bs-body-color);
-  background: var(--th-whiteblue);
-  font-weight: bold;
-  transition: all 0.3s ease !important;
-}
-.skillset-filter .controls button {
-  background: var(--th-bluegray);
-  color: var(--bs-light);
-}
-.dark-theme .skillset-filter .controls button {
-  background: var(--bs-gray-600);
-}
-.dark-theme .skillset-filter button {
-  background: var(--th-bluegray);
-}
-.skillset-filter button.pressed {
-  color: var(--th-darkest);
-  background: var(--bs-yellow);
-}
-@media (hover: hover) {
-  .skillset-filter button:hover {
-    color: var(--bs-light);
-    background: var(--th-bluegray);
-  }
-  .skillset-filter .controls button:hover {
-    color: var(--th-darkest);
-    background: var(--bs-yellow);
-  }
-}
+  &__projects-section {
+    .tiny-slider {
+      $parent: &;
 
-.grid {
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 3px;
-}
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-@media (min-width: 992px) {
-  .grid {
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 4px;
-  }
-}
-@media (min-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(8, 1fr);
-  }
-}
-@media (min-width: 1400px) {
-  .grid {
-    grid-template-columns: repeat(9, 1fr);
-    grid-gap: 5px;
-  }
-}
+      &__controls {
+        &-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        &-button {
+          font-size: 55pt;
+        }
+      }
 
-.tile {
-  width: 100%;
-  aspect-ratio: 1.5;
-  background-color: rgba(var(--th-body-color-rgb), 0.1);
-}
-.tile:hover {
-  background-color: var(--bs-light);
-}
-.tile img {
-  max-width: 100%;
-  max-height: 100%;
-  transition: all 0.2s ease;
-}
-.dark-theme .tile img {
-  filter: grayscale(1) invert(0.2);
-}
-.tile:hover img {
-  filter: none;
-  transform: scale(1.25);
-}
-@media (hover: none) {
-  .dark-theme .tile {
-    background-color: var(--th-whiteblue);
-  }
-  .tile img {
-    filter: none !important;
-  }
-}
+      &__nav {
+        &-button {
+          padding: 4px;
+          aspect-ratio: 1;
+          margin: 0 0.5em;
+          border-radius: 50%;
+          background: var(--th-body-color-accent);
+          opacity: 0.5;
+        }
+      }
 
-.tns-controls > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.tns-controls button {
-  font-size: 55pt;
-}
+      &__slide {
+        margin: 0 auto;
 
-.tns-item .slide {
-  margin: 0 auto;
-}
-.tns-item img {
-  padding: 10px;
-  filter: drop-shadow(0 2pt 2pt rgb(125, 125, 125));
-}
-.dark-theme .tns-item img {
-  filter: contrast(0.85) drop-shadow(0 2pt 2pt rgb(175, 175, 175));
-}
-@media (min-width: 768px) {
-  .tns-item .slide {
-    width: 80%;
-  }
-  .tns-item img {
-    padding: 25px;
-    filter: drop-shadow(0 2pt 4pt rgb(125, 125, 125));
-  }
-  .dark-theme .tns-item img {
-    filter: contrast(0.85) drop-shadow(0 2pt 4pt rgb(175, 175, 175));
-  }
-}
+        @include media-breakpoint-up(md) {
+          width: 80%;
+        }
 
-.tns-nav button {
-  padding: 4px;
-  aspect-ratio: 1;
-  margin: 0 0.5em;
-  border-radius: 50%;
-  background: var(--th-body-color-accent);
-  opacity: 0.5;
-}
+        &-image {
+          padding: 10px;
+          filter: drop-shadow(0 2pt 2pt rgb(125, 125, 125));
 
-.contact-info {
-  background: var(--th-bluegray);
+          @at-root .dark-theme > #{&} {
+            filter: contrast(0.85) drop-shadow(0 2pt 2pt rgb(175, 175, 175));
+          }
+
+          @include media-breakpoint-up(md) {
+            padding: 25px;
+            filter: drop-shadow(0 2pt 4pt rgb(125, 125, 125));
+
+            @at-root .dark-theme > #{&} {
+              filter: contrast(0.85) drop-shadow(0 2pt 4pt rgb(175, 175, 175));
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__skills-section {
+    .skillset-grid {
+      .options-panel {
+        @mixin panel-button {
+          width: 100%;
+          padding: 0.2em 1em;
+          border: none;
+          border-radius: 3em;
+          font-weight: bold;
+          transition: all 0.3s ease;
+        }
+
+        &__controls-button {
+          @include panel-button;
+          background: var(--th-bluegray);
+          color: var(--bs-light);
+
+          @at-root .dark-theme #{&} {
+            background: var(--bs-gray-600);
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              color: var(--th-darkest);
+              background: var(--bs-yellow);
+            }
+          }
+        }
+
+        .bistable-button {
+          @include panel-button;
+          color: var(--bs-body-color);
+          background: var(--th-whiteblue);
+
+          @at-root .dark-theme #{&} {
+            background: var(--th-bluegray);
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              color: var(--bs-light);
+              background: var(--th-bluegray);
+            }
+          }
+
+          &--is-pressed {
+            color: var(--th-darkest);
+            background: var(--bs-yellow);
+
+            @at-root .dark-theme #{&} {
+              color: var(--th-darkest);
+              background: var(--bs-yellow);
+            }
+          }
+        }
+      }
+
+      .tile-grid {
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 3px;
+
+        @include media-breakpoint-up(md) {
+          grid-template-columns: repeat(6, 1fr);
+        }
+        @include media-breakpoint-up(lg) {
+          grid-template-columns: repeat(7, 1fr);
+          grid-gap: 4px;
+        }
+        @include media-breakpoint-up(xl) {
+          grid-template-columns: repeat(8, 1fr);
+        }
+        @include media-breakpoint-up(xxl) {
+          grid-template-columns: repeat(9, 1fr);
+          grid-gap: 5px;
+        }
+
+        &__tile {
+          width: 100%;
+          aspect-ratio: 1.5;
+          background-color: rgba(var(--th-body-color-rgb), 0.1);
+
+          &:hover {
+            background-color: var(--bs-light);
+
+            img {
+              filter: none;
+              transform: scale(1.25);
+            }
+          }
+
+          @media (hover: none) {
+            @at-root .dark-theme #{&} {
+              background-color: var(--th-whiteblue);
+            }
+
+            img {
+              filter: none !important;
+            }
+          }
+        }
+
+        &__tile-image {
+          max-width: 100%;
+          max-height: 100%;
+          transition: all 0.2s ease;
+
+          @at-root .dark-theme #{&} {
+            filter: grayscale(1) invert(0.2);
+          }
+        }
+      }
+    }
+  }
+
+  &__contact-section {
+    .contact-info {
+      background: var(--th-bluegray);
+    }
+  }
 }
 </style>

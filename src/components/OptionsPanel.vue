@@ -1,15 +1,15 @@
 <template>
-  <div class="d-flex flex-wrap">
-    <div class="controls d-flex col-12 col-md-auto">
-      <div class="b-wrapper col-6 col-md-auto">
-        <button @click="setAllOptions(false)">Clear all</button>
+  <div v-bem class="d-flex flex-wrap">
+    <div v-bem:controls class="d-flex col-12 col-md-auto">
+      <div v-bem:controls-button-wrapper class="col-6 col-md-auto">
+        <button v-bem:controls-button @click="setAllOptions(false)">Clear all</button>
       </div>
-      <div class="b-wrapper col-6 col-md-auto">
-        <button @click="setAllOptions(true)">Select all</button>
+      <div v-bem:controls-button-wrapper class="col-6 col-md-auto">
+        <button v-bem:controls-button @click="setAllOptions(true)">Select all</button>
       </div>
     </div>
 
-    <div v-for="(option, index) in optionsBuffer" :key="index" class="b-wrapper">
+    <div v-bem:controls-button-wrapper v-for="(option, index) in optionsBuffer" :key="index">
       <slot :option="option">
         <BistableButton v-model="option.state" :label="option.name" @dblclick="setOnlyOneOption(option, true)" />
       </slot>
@@ -24,6 +24,7 @@ import { ref } from "@vue/reactivity";
 import { computed, watchEffect } from "@vue/runtime-core";
 
 export default {
+  name: "options-panel",
   components: { BistableButton },
   props: ["modelValue", "id", "options"],
   emits: ["update:modelValue"],
@@ -61,10 +62,12 @@ export default {
 };
 </script>
 
-<style>
-.b-wrapper {
-  flex: auto;
-  text-align: center;
-  padding: 2pt;
+<style lang="scss">
+.options-panel {
+  &__controls-button-wrapper {
+    flex: auto;
+    text-align: center;
+    padding: 2pt;
+  }
 }
 </style>
