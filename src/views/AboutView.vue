@@ -1,8 +1,8 @@
 <template>
-  <div class="container content">
-    <section id="welcome" class="my-4 py-2 row">
+  <div v-bem class="container content">
+    <section v-bem:welcome-section id="welcome" class="my-4 py-2 row">
       <div class="my-auto col-12 col-lg-8">
-        <p class="welcome m-0 px-3 fs-6 fw-bold">Welcome to my portfolio website!</p>
+        <p class="m-0 fs-6 fw-bold greeting-message">Welcome to my portfolio website!</p>
         <h1 class="my-4 d-flex flex-column d-lg-block">
           <span class="me-3">Hey folks, I'm</span>
           <TextAnimator
@@ -16,7 +16,7 @@
               'Electrician.',
             ]"
             :mode="'typewriting'"
-            class="animated-item"
+            class="animated-text"
           />
         </h1>
         <p>
@@ -31,7 +31,7 @@
       </div>
     </section>
 
-    <section id="aboutme" class="my-4 py-2 row">
+    <section v-bem:aboutme-section id="aboutme" class="my-4 py-2 row">
       <h2>About me</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia voluptatibus recusandae inventore
@@ -47,7 +47,7 @@
       </p>
     </section>
 
-    <section id="projects" class="my-4 py-2 row">
+    <section v-bem:projects-section id="projects" class="my-4 py-2 row">
       <h2>My projects</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia voluptatibus recusandae inventore
@@ -83,7 +83,7 @@
       </TinySlider>
     </section>
 
-    <section id="skills" class="my-4 py-2 row">
+    <section v-bem:skills-section id="skills" class="my-4 py-2 row">
       <h2>My skill set, tools and technologies that I use</h2>
       <p>
         Many years of activities and development on many levels allowed me to master few programming languages,
@@ -123,10 +123,10 @@
       </p>
     </section>
 
-    <section id="contact" class="my-4 my-lg-5 py-2 row">
+    <section v-bem:contact-section id="contact" class="my-4 my-lg-5 py-2 row">
       <div class="my-4 my-lg-0 px-3 px-lg-5 py-xl-3 col-lg-6 col-12">
         <img src="@/assets/images/undraw/undraw_envelope.svg" class="img-fluid px-5" alt="Envelope contact image" />
-        <div class="contact-info d-flex justify-content-between align-items-center text-white py-3 px-4 px-lg-5">
+        <div class="d-flex justify-content-between align-items-center text-white py-3 px-4 px-lg-5 contact-info">
           <div class="d-flex flex-column">
             <h3 class="mb-3 text-reset">Mateusz Frydrych</h3>
             <span class="mb-0 text-reset uil uil-phone">&nbsp;+48 726 140 859</span>
@@ -176,6 +176,7 @@ import { ref } from "@vue/reactivity";
 import { computed } from "@vue/runtime-core";
 
 export default {
+  name: "about-view",
   components: { TextAnimator, ContactForm, TileGrid, TinySlider, OptionsPanel },
   setup() {
     const skillset = SkillsetRepository.getAll();
@@ -207,145 +208,161 @@ export default {
 </script>
 
 <style lang="scss">
-.welcome {
-  color: var(--th-body-color-accent);
-}
-
-.animated-item {
-  color: var(--bs-yellow);
-}
-
-.avatar {
-  &__wrapper {
-    @include rounded-box;
-    aspect-ratio: 1;
-    overflow: hidden;
-    position: relative;
-  }
-  &__image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%);
-    transition: 0.3s ease;
-
-    &:hover {
-      height: 110%;
-      transform: translate(-50%, -46%);
+.about-view {
+  &__welcome-section {
+    .greeting-message {
+      color: var(--th-body-color-accent);
     }
-  }
-}
-
-.skillset-grid {
-  .options-panel {
-    @mixin panel-button {
-      width: 100%;
-      padding: 0.2em 1em;
-      border: none;
-      border-radius: 3em;
-      font-weight: bold;
-      transition: all 0.3s ease;
+    .animated-text {
+      color: var(--bs-yellow);
     }
-
-    &__controls-button {
-      @include panel-button;
-      background: var(--th-bluegray);
-      color: var(--bs-light);
-
-      @at-root .dark-theme #{&} {
-        background: var(--bs-gray-600);
+    .avatar {
+      &__wrapper {
+        @include rounded-box;
+        aspect-ratio: 1;
+        overflow: hidden;
+        position: relative;
       }
+      &__image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        transition: 0.3s ease;
 
-      @media (hover: hover) {
         &:hover {
-          color: var(--th-darkest);
-          background: var(--bs-yellow);
+          height: 110%;
+          transform: translate(-50%, -46%);
         }
       }
     }
+  }
 
-    .bistable-button {
-      @include panel-button;
-      color: var(--bs-body-color);
-      background: var(--th-whiteblue);
+  &__aboutme-section {
+  }
 
-      @at-root .dark-theme #{&} {
-        background: var(--th-bluegray);
-      }
+  &__projects-section {
+  }
 
-      @media (hover: hover) {
-        &:hover {
-          color: var(--bs-light);
+  &__skills-section {
+    .skillset-grid {
+      .options-panel {
+        @mixin panel-button {
+          width: 100%;
+          padding: 0.2em 1em;
+          border: none;
+          border-radius: 3em;
+          font-weight: bold;
+          transition: all 0.3s ease;
+        }
+
+        &__controls-button {
+          @include panel-button;
           background: var(--th-bluegray);
+          color: var(--bs-light);
+
+          @at-root .dark-theme #{&} {
+            background: var(--bs-gray-600);
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              color: var(--th-darkest);
+              background: var(--bs-yellow);
+            }
+          }
+        }
+
+        .bistable-button {
+          @include panel-button;
+          color: var(--bs-body-color);
+          background: var(--th-whiteblue);
+
+          @at-root .dark-theme #{&} {
+            background: var(--th-bluegray);
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              color: var(--bs-light);
+              background: var(--th-bluegray);
+            }
+          }
+
+          &--is-pressed {
+            color: var(--th-darkest);
+            background: var(--bs-yellow);
+
+            @at-root .dark-theme #{&} {
+              color: var(--th-darkest);
+              background: var(--bs-yellow);
+            }
+          }
         }
       }
 
-      &--is-pressed {
-        color: var(--th-darkest);
-        background: var(--bs-yellow);
+      .tile-grid {
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 3px;
 
-        @at-root .dark-theme #{&} {
-          color: var(--th-darkest);
-          background: var(--bs-yellow);
+        @include media-breakpoint-up(md) {
+          grid-template-columns: repeat(6, 1fr);
+        }
+        @include media-breakpoint-up(lg) {
+          grid-template-columns: repeat(7, 1fr);
+          grid-gap: 4px;
+        }
+        @include media-breakpoint-up(xl) {
+          grid-template-columns: repeat(8, 1fr);
+        }
+        @include media-breakpoint-up(xxl) {
+          grid-template-columns: repeat(9, 1fr);
+          grid-gap: 5px;
+        }
+
+        &__tile {
+          width: 100%;
+          aspect-ratio: 1.5;
+          background-color: rgba(var(--th-body-color-rgb), 0.1);
+
+          &:hover {
+            background-color: var(--bs-light);
+
+            img {
+              filter: none;
+              transform: scale(1.25);
+            }
+          }
+
+          @media (hover: none) {
+            @at-root .dark-theme #{&} {
+              background-color: var(--th-whiteblue);
+            }
+
+            img {
+              filter: none !important;
+            }
+          }
+        }
+
+        &__tile-image {
+          max-width: 100%;
+          max-height: 100%;
+          transition: all 0.2s ease;
+
+          @at-root .dark-theme #{&} {
+            filter: grayscale(1) invert(0.2);
+          }
         }
       }
     }
   }
 
-  .tile-grid {
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 3px;
-
-    @include media-breakpoint-up(md) {
-      grid-template-columns: repeat(6, 1fr);
-    }
-    @include media-breakpoint-up(lg) {
-      grid-template-columns: repeat(7, 1fr);
-      grid-gap: 4px;
-    }
-    @include media-breakpoint-up(xl) {
-      grid-template-columns: repeat(8, 1fr);
-    }
-    @include media-breakpoint-up(xxl) {
-      grid-template-columns: repeat(9, 1fr);
-      grid-gap: 5px;
-    }
-
-    &__tile {
-      width: 100%;
-      aspect-ratio: 1.5;
-      background-color: rgba(var(--th-body-color-rgb), 0.1);
-
-      &:hover {
-        background-color: var(--bs-light);
-
-        img {
-          filter: none;
-          transform: scale(1.25);
-        }
-      }
-
-      @media (hover: none) {
-        @at-root .dark-theme #{&} {
-          background-color: var(--th-whiteblue);
-        }
-
-        img {
-          filter: none !important;
-        }
-      }
-    }
-
-    &__tile-image {
-      max-width: 100%;
-      max-height: 100%;
-      transition: all 0.2s ease;
-
-      @at-root .dark-theme #{&} {
-        filter: grayscale(1) invert(0.2);
-      }
+  &__contact-section {
+    .contact-info {
+      background: var(--th-bluegray);
     }
   }
 }
@@ -389,9 +406,5 @@ export default {
   border-radius: 50%;
   background: var(--th-body-color-accent);
   opacity: 0.5;
-}
-
-.contact-info {
-  background: var(--th-bluegray);
 }
 </style>
