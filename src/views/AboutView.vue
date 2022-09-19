@@ -58,23 +58,23 @@
       <TinySlider :id="'tns-projects'" :data="projects" :items="1" :preventScrollOnTouch="'force'" class="my-1">
         <template #slide="{ item }">
           <div>
-            <div class="slide">
-              <img :src="item.image" class="d-block w-100" :alt="item.name" />
+            <div class="tiny-slider__slide">
+              <img :src="item.image" class="d-block w-100 tiny-slider__slide-image" :alt="item.name" />
             </div>
           </div>
         </template>
 
         <template #controls-prev>
-          <div>
-            <button>
+          <div class="tiny-slider__controls-wrapper">
+            <button class="tiny-slider__controls-button">
               <span class="material-icons-round">arrow_back</span>
               <span class="d-none">Previous</span>
             </button>
           </div>
         </template>
         <template #controls-next>
-          <div>
-            <button>
+          <div class="tiny-slider__controls-wrapper">
+            <button class="tiny-slider__controls-button">
               <span class="material-icons-round">arrow_forward</span>
               <span class="d-none">Previous</span>
             </button>
@@ -244,6 +244,57 @@ export default {
   }
 
   &__projects-section {
+    .tiny-slider {
+      $parent: &;
+
+      &__controls {
+        &-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        &-button {
+          font-size: 55pt;
+        }
+      }
+
+      &__nav {
+        &-button {
+          padding: 4px;
+          aspect-ratio: 1;
+          margin: 0 0.5em;
+          border-radius: 50%;
+          background: var(--th-body-color-accent);
+          opacity: 0.5;
+        }
+      }
+
+      &__slide {
+        margin: 0 auto;
+
+        @include media-breakpoint-up(md) {
+          width: 80%;
+        }
+
+        &-image {
+          padding: 10px;
+          filter: drop-shadow(0 2pt 2pt rgb(125, 125, 125));
+
+          @at-root .dark-theme > #{&} {
+            filter: contrast(0.85) drop-shadow(0 2pt 2pt rgb(175, 175, 175));
+          }
+
+          @include media-breakpoint-up(md) {
+            padding: 25px;
+            filter: drop-shadow(0 2pt 4pt rgb(125, 125, 125));
+
+            @at-root .dark-theme > #{&} {
+              filter: contrast(0.85) drop-shadow(0 2pt 4pt rgb(175, 175, 175));
+            }
+          }
+        }
+      }
+    }
   }
 
   &__skills-section {
@@ -365,46 +416,5 @@ export default {
       background: var(--th-bluegray);
     }
   }
-}
-
-.tns-controls > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.tns-controls button {
-  font-size: 55pt;
-}
-
-.tns-item .slide {
-  margin: 0 auto;
-}
-.tns-item img {
-  padding: 10px;
-  filter: drop-shadow(0 2pt 2pt rgb(125, 125, 125));
-}
-.dark-theme .tns-item img {
-  filter: contrast(0.85) drop-shadow(0 2pt 2pt rgb(175, 175, 175));
-}
-@include media-breakpoint-up(md) {
-  .tns-item .slide {
-    width: 80%;
-  }
-  .tns-item img {
-    padding: 25px;
-    filter: drop-shadow(0 2pt 4pt rgb(125, 125, 125));
-  }
-  .dark-theme .tns-item img {
-    filter: contrast(0.85) drop-shadow(0 2pt 4pt rgb(175, 175, 175));
-  }
-}
-
-.tns-nav button {
-  padding: 4px;
-  aspect-ratio: 1;
-  margin: 0 0.5em;
-  border-radius: 50%;
-  background: var(--th-body-color-accent);
-  opacity: 0.5;
 }
 </style>
