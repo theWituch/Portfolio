@@ -1,0 +1,13 @@
+// Bootstrap tweaks
+
+// Unset Bootstrap variables that are not nested in the :root selector
+// to allow them to be overwritten with variables from the theme.
+.navbar {
+  --navbar-color: unset;
+  --navbar-brand-color: unset;
+  --navbar-brand-hover-color: unset;
+}
+.navbar-nav {
+  --nav-link-color: unset;
+  --nav-link-hover-color: unset;
+}

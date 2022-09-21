@@ -1,0 +1,23 @@
+// Variables
+
+/*
+ * Variables should follow the `$component-state-property-size` formula for consistent naming.
+ * Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+ */
+
+// Do not prefix Bootstrap variables, we use all vars in one scope!
+$prefix: "";
+
+
+// Colors
+$darker: #212529;
+$darkest: #0c0c0d;
+$bluegray: #474559;
+$whiteblue: #c7c8ce;
+
+// Material icon options
+$material-icons-font-path: "material-icons/iconfont/";
+$material-icons-types: ("filled", "outlined", "round", "sharp", "two-tone");
+
+// Theme options
+$auto-color-rgb-variant: true;
