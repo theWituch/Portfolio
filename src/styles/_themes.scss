@@ -1,3 +1,80 @@
 // Theming
 
-@import "./themes/theme";
+$themed-parameters: (
+  body-font-family: (
+    default: "'Maven Pro', #{$font-family-base}",
+  ),
+  body-bg: (
+    light: $white,
+    dark: $darkest,
+  ),
+  body-color: (
+    light: $gray-600,
+    dark: $gray-500,
+  ),
+  body-color-accent: (
+    light: $darker,
+    dark: $white,
+  ),
+);
+
+// Register additional colors to be available via css var()
+//TODO: Figure out more clean way to manage and register colors
+$themed-parameters: map-merge(
+  $themed-parameters,
+  (
+    darker: (
+      default: $darker,
+    ),
+    darkest: (
+      default: $darkest,
+    ),
+    bluegray: (
+      default: $bluegray,
+    ),
+    whiteblue: (
+      default: $whiteblue,
+    ),
+  )
+);
+
+// Should be a RGB variant generated for every color automatically?
+$auto-color-rgb-variant: false !default;
+
+@function generate-themes($parameters) {
+  $map: ();
+
+  @each $parameter, $variants in $parameters {
+    @each $theme, $value in $variants {
+      $map: map-set($map, $theme, (#{$parameter}: $value));
+
+      @if $auto-color-rgb-variant {
+        @if type_of($value) == color {
+          $map: map-set($map, $theme, (#{$parameter}-rgb: to-rgb($value)));
+        }
+      }
+    }
+  }
+
+  @return $map;
+}
+
+$themes: generate-themes($themed-parameters);
+
+@mixin generate-theme-variant($values) {
+  @each $name, $value in $values {
+    --#{$name}: #{$value};
+  }
+}
+
+@each $theme-name, $values in $themes {
+  @if $theme-name == "default" {
+    :root {
+      @include generate-theme-variant($values);
+    }
+  } @else {
+    :root.#{$theme-name}-theme {
+      @include generate-theme-variant($values);
+    }
+  }
+}

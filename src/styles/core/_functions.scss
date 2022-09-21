@@ -6,8 +6,13 @@
   $_map: ();
 
   @each $value in $list {
-    $key: index($list, $value) - 1;  // TODO: Add key generator callback function
-    $_map: map-merge($_map, ($key: $value));
+    $key: index($list, $value) - 1; // TODO: Add key generator callback function
+    $_map: map-merge(
+      $_map,
+      (
+        $key: $value,
+      )
+    );
   }
 
   @return $_map;
@@ -17,4 +22,65 @@
 // Create simple 1px coloured border for easier container debugging
 @function to-debug-border($value) {
   @return 1px solid $value;
+}
+
+// Fetch a deep value in a multi-level map.
+// https://gist.github.com/KittyGiraudel/9933331
+@function map-fetch($map, $keys) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+// Set or update a deep nested value in map.
+@function map-set($map, $keys, $new) {
+  $orig: $map;
+  $cache: ();
+  $length: length($keys);
+  $last: nth($keys, $length);
+
+  @each $key in $keys {
+    $map: map-get($map, $key);
+
+    @if $map==null {
+      $map: ();
+    }
+
+    @if $key==$last {
+      $map: map-merge($map, $new);
+    }
+
+    $cache: append($cache, $map);
+  }
+
+  $i: $length;
+
+  @while $i>1 {
+    $prev: $i - 1;
+    $cache: set-nth(
+      $cache,
+      $prev,
+      map-merge(
+        nth($cache, $prev),
+        (
+          nth($keys, $i): nth($cache, $i),
+        )
+      )
+    );
+    $i: $prev;
+  }
+
+  @return map-merge(
+    $orig,
+    (
+      nth($keys, 1): nth($cache, 1),
+    )
+  );
+}
+
+// Add opacity to rgb color stored in CSS var
+@function opacify-rgb-var($color-variable, $opacity) {
+  @return rgba(var(#{$color-variable}), $opacity);
 }

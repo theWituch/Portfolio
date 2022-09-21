@@ -24,8 +24,8 @@
 // Include tweaks for used modules, libraries, browsers etc.
 @import "tweaks";
 
-// Include color themes
-@import "themes";
-
 // Include shared styles across whole application
 @import "shared";
+
+// Include themes (themed CSS vars for colors, fonts etc.)
+@import "themes";
