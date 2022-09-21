@@ -180,11 +180,11 @@ export default {
       background: none;
       font-size: 2em;
       font-weight: bolder;
-      color: var(--th-body-color-accent);
+      color: var(--body-color-accent);
       pointer-events: all;
 
       &:hover {
-        color: var(--bs-link-hover-color);
+        color: var(--link-hover-color);
       }
     }
   }
@@ -199,7 +199,7 @@ export default {
     &-button {
       margin: 0.5ex;
       padding-bottom: 0.5ex;
-      background: var(--bs-body-color);
+      background: var(--body-color);
       opacity: 0.25;
       border: none;
 

@@ -2,13 +2,13 @@
   <transition name="header">
     <nav v-bem="{ isScrolled: scrolled || !collapsed }" v-show="showHeader" class="navbar navbar-expand-lg">
       <div class="container py-1">
-        <a class="navbar-brand col-lg-3" href="#">
+        <a v-bem:brand class="navbar-brand col-lg-3" href="#">
           <img
             src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
             width="40"
             class="img-fluid d-inline-block"
           />
-          Portfolio logo
+          Portfolio
         </a>
 
         <button
@@ -90,13 +90,17 @@ export default {
   top: 0;
   right: 0;
   z-index: 999999;
-  background-color: var(--bs-body-bg);
-  color: var(--th-body-color-accent);
+  background-color: var(--body-bg);
+  color: var(--body-color-accent);
   font-size: 16px;
-  color: var(--bs-body-color);
+  color: var(--body-color);
 
   &--is-scrolled {
-    border-bottom: 1px solid var(--th-navbar-border-color);
+    border-bottom: 1px solid var(--navbar-border-color);
+  }
+
+  &__brand {
+    font-weight: bold;
   }
 
   &__menu {
@@ -136,18 +140,6 @@ export default {
     &--is-toggled {
       transform: rotate(90deg);
     }
-  }
-
-  //TODO: Remove these overrides - replace using proper variables
-  --bs-navbar-color: var(--th-body-color-accent);
-  --bs-navbar-brand-color: var(--th-body-color-accent);
-  .navbar-brand {
-    --bs-navbar-brand-hover-color: var(--th-nav-link-hover-color);
-  }
-  .navbar-nav {
-    --bs-nav-link-color: var(--th-nav-link-color);
-    --bs-nav-link-hover-color: var(--th-nav-link-hover-color);
-    --bs-nav-link-disabled-color: var(--th-nav-link-disabled-color);
   }
 }
 

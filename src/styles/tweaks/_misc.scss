@@ -1,3 +1,5 @@
+// Misc tweaks
+
 /* Change Autocomplete styles in Chrome
  * https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
 */
@@ -11,6 +13,6 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: 1px solid inherit;
-  -webkit-text-fill-color: var(--bs-body-color) !important;
+  -webkit-text-fill-color: var(--body-color) !important;
   transition: background-color 5000s ease-in-out 0s;
 }

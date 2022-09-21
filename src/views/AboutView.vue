@@ -211,10 +211,10 @@ export default {
 .about-view {
   &__welcome-section {
     .greeting-message {
-      color: var(--th-body-color-accent);
+      color: var(--body-color-accent);
     }
     .animated-text {
-      color: var(--bs-yellow);
+      color: var(--yellow);
     }
     .avatar {
       &__wrapper {
@@ -264,7 +264,7 @@ export default {
           aspect-ratio: 1;
           margin: 0 0.5em;
           border-radius: 50%;
-          background: var(--th-body-color-accent);
+          background: var(--body-color-accent);
           opacity: 0.5;
         }
       }
@@ -303,6 +303,7 @@ export default {
         @mixin panel-button {
           width: 100%;
           padding: 0.2em 1em;
+          color: var(--darkest);
           border: none;
           border-radius: 3em;
           font-weight: bold;
@@ -311,45 +312,32 @@ export default {
 
         &__controls-button {
           @include panel-button;
-          background: var(--th-bluegray);
-          color: var(--bs-light);
-
-          @at-root .dark-theme #{&} {
-            background: var(--bs-gray-600);
-          }
+          color: var(--light);
+          background: var(--options-panel-controls-bg);
 
           @media (hover: hover) {
             &:hover {
-              color: var(--th-darkest);
-              background: var(--bs-yellow);
+              color: var(--darkest);
+              background: var(--yellow);
             }
           }
         }
 
         .bistable-button {
           @include panel-button;
-          color: var(--bs-body-color);
-          background: var(--th-whiteblue);
-
-          @at-root .dark-theme #{&} {
-            background: var(--th-bluegray);
-          }
+          color: var(--body-color);
+          background: var(--options-panel-button-bg);
 
           @media (hover: hover) {
             &:hover {
-              color: var(--bs-light);
-              background: var(--th-bluegray);
+              color: var(--light);
+              background: var(--bluegray);
             }
           }
 
           &--is-pressed {
-            color: var(--th-darkest);
-            background: var(--bs-yellow);
-
-            @at-root .dark-theme #{&} {
-              color: var(--th-darkest);
-              background: var(--bs-yellow);
-            }
+            color: var(--darkest);
+            background: var(--yellow);
           }
         }
       }
@@ -376,10 +364,10 @@ export default {
         &__tile {
           width: 100%;
           aspect-ratio: 1.5;
-          background-color: rgba(var(--th-body-color-rgb), 0.1);
+          background-color: opacify-rgb-var(--body-color-rgb, 0.1);
 
           &:hover {
-            background-color: var(--bs-light);
+            background-color: var(--light);
 
             img {
               filter: none;
@@ -389,7 +377,7 @@ export default {
 
           @media (hover: none) {
             @at-root .dark-theme #{&} {
-              background-color: var(--th-whiteblue);
+              background-color: var(--whiteblue);
             }
 
             img {
@@ -413,7 +401,7 @@ export default {
 
   &__contact-section {
     .contact-info {
-      background: var(--th-bluegray);
+      background: var(--bluegray);
     }
   }
 }

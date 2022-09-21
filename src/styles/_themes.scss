@@ -16,6 +16,42 @@ $themed-parameters: (
     light: $darker,
     dark: $white,
   ),
+  link-hover-color: (
+    default: $yellow,
+  ),
+  navbar-color: (
+    light: $gray-600,
+    dark: $gray-500,
+  ),
+  navbar-hover-color: (
+    default: $yellow,
+  ),
+  navbar-brand-color: (
+    light: $darker,
+    dark: $white,
+  ),
+  navbar-brand-hover-color: (
+    default: $yellow,
+  ),
+  navbar-border-color: (
+    light: $gray-300,
+    dark: $gray-900,
+  ),
+  nav-link-color: (
+    light: $gray-600,
+    dark: $gray-400,
+  ),
+  nav-link-hover-color: (
+    default: $yellow,
+  ),
+  options-panel-button-bg: (
+    light: $whiteblue,
+    dark: $bluegray,
+  ),
+  options-panel-controls-bg: (
+    light: $bluegray,
+    dark: $gray-600,
+  ),
 );
 
 // Register additional colors to be available via css var()

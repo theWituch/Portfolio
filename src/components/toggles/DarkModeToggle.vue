@@ -30,12 +30,12 @@ export default {
   padding: 0;
   background: none;
   border: none;
-  color: var(--th-body-color-accent);
+  color: var(--body-color-accent);
   font-weight: bold;
   transition: color 0.3s ease;
 
   &:hover {
-    color: var(--bs-link-hover-color);
+    color: var(--link-hover-color);
   }
 
   &__icon {

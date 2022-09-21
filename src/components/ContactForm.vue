@@ -64,35 +64,35 @@ export default {
 
   &__control {
     @extend %form-control;
-    color: var(--bs-body-color);
+    color: var(--body-color);
     background: transparent;
     background-color: transparent;
     border-radius: 3px;
 
     &:hover,
     &:focus {
-      color: var(--bs-body-color);
+      color: var(--body-color);
       background-color: transparent;
-      border-color: var(--bs-yellow);
+      border-color: var(--yellow);
     }
   }
 
   &__submit-button {
     @extend %form-control;
-    background: var(--bs-yellow);
+    background: var(--yellow);
     border-radius: 30px;
-    color: var(--th-darkest);
+    color: var(--darkest);
     border: none;
     transition: all 0.4s ease;
 
     &:focus {
-      background: var(--bs-yellow);
+      background: var(--yellow);
     }
 
     @media (hover: hover) {
       &:hover {
-        color: var(--bs-light);
-        background: var(--th-bluegray);
+        color: var(--light);
+        background: var(--bluegray);
       }
     }
   }
