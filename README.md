@@ -19,7 +19,7 @@ I wrote the entire application in VueJS **myself from scratch.**
 
 The purpose of the project, which is the practice of creating applications in VueJS, made me clarify the functional areas that I want to include in the application. So far it is:
 
-<details open><summary>Click to expand</summary>
+<details><summary>Click to expand</summary>
 
 - [ ] Tame power of Vue:
   - [x] options API
