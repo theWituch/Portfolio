@@ -1,12 +1,16 @@
+// Important!
+// It is necessary to import global styles before importing the application so that in-component styles will be higher in the cascade
+import "@/styles/main.scss";
+
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import "@/assets/theme.css";
-import "@/assets/main.css";
-import "@/assets/css/tweaks/material-icons.css";
+import bem from "vue-simple-bem";
 
 document.title = "Portfolio";
 
-createApp(App).use(router).mount("#app");
+const app = createApp(App);
+app.use(router);
+app.use(bem);
+
+app.mount("#app");

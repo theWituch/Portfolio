@@ -15,6 +15,38 @@ As a website design, I used a ready-made theme (https://www.free-css.com/free-cs
 
 I wrote the entire application in VueJS **myself from scratch.**
 
+## Project scope
+
+The purpose of the project, which is the practice of creating applications in VueJS, made me clarify the functional areas that I want to include in the application. So far it is:
+
+<details open><summary>Click to expand</summary>
+
+- [ ] Tame power of Vue:
+  - [x] options API
+  - [x] composition API
+  - [x] reactivity
+  - [x] events
+  - [ ] routing (sub-pages for each of my projects)
+  - [x] component slots with data passing (scoped slots)
+  - [ ] automated tests
+  - [ ] (optional) state management (state store)
+  - [ ] (optional) asynchronous components
+  - and other when needed.
+
+- [ ] Build an application:
+  - [x] `RWD` compliant
+  - [x] using `BEM` methodology for styling components
+  - [ ] as installable `PWA`
+  - [ ] with a detachable window that maintains reactivity
+  - [ ] connected to backend service
+  - [ ] with multilingual content support
+
+- [X] Style with `SASS`:
+  - [x] lay a code structure and import order that allows to combine global styles with Vue in-component styles
+  - [x] combine styles with all `Bootstrap` functionalities
+  - [x] develop theming system for parameter of any type (eg. colors, font sizes)
+</details>
+
 ## Getting Started
 
 First, just clone this repository. You will need an instance of [Node.JS](https://nodejs.org/) installed for the following steps.
