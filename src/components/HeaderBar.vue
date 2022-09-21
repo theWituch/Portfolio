@@ -4,10 +4,14 @@
       <div class="container py-1">
         <a v-bem:brand class="navbar-brand col-lg-3" href="#">
           <img
-            src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
-            width="40"
-            class="img-fluid d-inline-block"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/277px-Vue.js_Logo_2.svg.png"
+            class="me-1 img-fluid d-inline-block"
           />
+          <img
+            src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
+            class="me-1 img-fluid d-inline-block"
+          />
+          <img src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg" class="me-1 img-fluid d-inline-block" />
           Portfolio
         </a>
 
@@ -101,6 +105,14 @@ export default {
 
   &__brand {
     font-weight: bold;
+
+    img {
+      width: 30px;
+
+      @include media-breakpoint-up(lg) {
+        width: 40px;
+      }
+    }
   }
 
   &__menu {
