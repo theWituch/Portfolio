@@ -2,21 +2,7 @@
 @import "core";
 
 // Include other modules and libraries etc.
-@import "node_modules/bootstrap/scss/root";
-@import "node_modules/bootstrap/scss/reboot";
-@import "node_modules/bootstrap/scss/containers";
-@import "node_modules/bootstrap/scss/grid";
-@import "node_modules/bootstrap/scss/nav";
-@import "node_modules/bootstrap/scss/navbar";
-@import "node_modules/bootstrap/scss/forms";
-@import "node_modules/bootstrap/scss/buttons";
-@import "node_modules/bootstrap/scss/images";
-
-@import "node_modules/material-icons/iconfont/filled";
-@import "node_modules/material-icons/iconfont/outlined";
-@import "node_modules/material-icons/iconfont/round";
-
-@import "@iconscout/unicons/css/line.css";
+@import "libraries";
 
 // Include generated utilities
 @import "utilities";
